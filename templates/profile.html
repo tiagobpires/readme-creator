@@ -31,86 +31,15 @@
         <fieldset class="border p-2 mb-2 row gx-2">
             <legend class="legend w-auto mb-0">More about you</legend>
 
-            <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="🔭 I’m currently working on ">
-            </div>
+            {% for key, value in more_about_you.items() %}
+                <div class="col-md-3 mb-2">
+                    <input type="text" class="form-control" value="{{ key }}">
+                </div>
 
-            <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder="Be a good student :P">
-            </div>
-
-            <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="🎓 Graduated in ">
-            </div>
-
-            <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder="">
-            </div>
-
-            <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="📫 Reach me ">
-            </div>
-
-            <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder="tiagobarrospires@gmail.com">
-            </div>
-
-            <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="💡 I'm interested about ">
-            </div>
-            
-            <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder="Computer Science, web development, games and series">
-            </div>
-
-            <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="👨‍💻 See my portfolio at  ">
-            </div>
-
-            <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder="www.portfolio.com">
-            </div>
-
-
-            <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="💬 Ask me about ">
-            </div>
-
-            <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder="Competitive programming">
-            </div>
-
-            <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="🌱 Learning about ">
-            </div>
-
-            <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder="Web development and Competitive programming">
-            </div>
-
-            <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="🤝 I like to collaborate in ">
-            </div>
-
-            <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder="Open Source projects">
-            </div>
-
-            <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="😄 Pronouns ">
-            </div>
-
-            <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder="He/His">
-            </div>
-            
-            <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="⚡ Fun fact ">
-            </div>
-
-            <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder=":0">
-            </div>
+                <div class="col-md-9 mb-2">
+                    <input type="text" class="form-control" placeholder="{{ value }}">
+                </div>
+            {% endfor %}
         </fieldset>
 
 
@@ -129,11 +58,46 @@
             <legend class="legend w-auto mb-0">Cool features</legend>          
 
             <div class="row">        
-                <label for="ghusername" class="col-6 fw-bold px-0 ms-auto pt-1" style="width: 45%;">Please fill in your github username for correctly work of the features</label>        
-                <input type="text" class="form-control col-4 me-auto" id="ghusername" placeholder="Git Hub username" style="height: 33px; width: 20%;">
+                <label for="ghusername" class="col-8 fw-bold px-0 ms-auto">Please fill in your github username for correctly work of the features</label>        
+                <input type="text" class="form-control col-4 me-auto" id="ghusername" placeholder="GitHub username" style="height: 33px; width: 20%;">
+            </div>
+
+            <div class="form-check my-1">
+                <input class="form-check-input" type="checkbox" value="" id="ghstatus">
+                <label class="form-check-label" for="ghstatus">
+                  GitHub Status
+                </label>
+            </div>
+
+            <div class="form-check my-1">
+                <input class="form-check-input" type="checkbox" value="" id="ghlanguages">
+                <label class="form-check-label" for="ghlanguages">
+                  Most used languages
+                </label>
+            </div>
+
+            <div class="form-check my-1">
+                <input class="form-check-input" type="checkbox" value="" id="ghviews">
+                <label class="form-check-label" for="ghviews">
+                  Profile views
+                </label>
+            </div>
+
+            <div class="form-check my-1">
+                <input class="form-check-input" type="checkbox" value="" id="ghstreak">
+                <label class="form-check-label" for="ghstreak">
+                  Streak Stats
+                </label>
+            </div>
+
+            <div class="form-check my-1">
+                <input class="form-check-input" type="checkbox" value="" id="ghtrophy">
+                <label class="form-check-label" for="ghtrophy">
+                  Profile Trophy
+                </label>
             </div>
         </fieldset>
        
     </form>
-
+    
 {% endblock %}
