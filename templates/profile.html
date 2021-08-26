@@ -44,13 +44,16 @@
 
 
         <fieldset class="border p-2 mb-2 row gx-2">
-            <legend class="legend w-auto mb-0">Your Skills</legend>
-            
-        </fieldset>
-
-        <fieldset class="border p-2 mb-2 row gx-2">
             <legend class="legend w-auto mb-0">Your Social Medias</legend>
             
+            {% for key, value in social_medias.items() %}
+                <div class="d-flex justify-content-start w-50 my-1">
+                    <div class="divSocialBadges d-flex justify-content-end">
+                        <img src="{{ value }}" class="socialbadges mx-2">
+                    </div>
+                    <input type="text" class="form-control w-50" placeholder="{{ key }}">
+                </div>
+            {% endfor %}
         </fieldset>
 
 
@@ -97,7 +100,17 @@
                 </label>
             </div>
         </fieldset>
-       
+        
+        <fieldset class="border p-2 mb-2 row gx-2 d-flex justify-content-center">
+            <legend class="legend w-auto mb-0">Your Skills</legend>
+            {% for key, value in skills.items() %}
+                <div class="form-check mx-2 my-4 col-2 d-flex justify-content-center">
+                    <input class="form-check-input" type="checkbox" value="{{ key }}">
+                    <img src="{{ value }}" class="skillsImage ms-4">
+                </div>
+            {% endfor %}
+        </fieldset>
+
     </form>
     
 {% endblock %}

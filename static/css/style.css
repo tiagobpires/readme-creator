@@ -6,3 +6,17 @@
 textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 0 0 !important;
 } 
+
+.socialbadges {
+    width: auto !important;
+    height: 36px !important;
+}
+
+.divSocialBadges {
+    width: 172px !important;
+}
+
+.skillsImage {
+    height: 70px !important;
+    width: 70px !important;
+}
