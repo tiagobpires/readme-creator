@@ -7,37 +7,37 @@
 {% block main %}
 
     <h1 class="mb-3">Profile Readme</h1>
-    <p class="lead fs-4">
+    <p class="lead fs-4" id="hello">
         Fill in the informations you want to put on your readme
     </p>
 
-    <form>
+    <form method="POST" action="/submit" autocomplete="off">
         <fieldset class="border p-2 mb-2 row gx-2">
             <legend class="legend w-auto mb-0">Greet</legend>
             <div class="col-md-3 mb-2">
-                <input type="text" class="form-control" value="👋 Hello World, I'm">
+                <input type="text" class="form-control" name="title" value="👋 Hello World, I'm">
             </div>
 
             <div class="col-md-9 mb-2">
-                <input type="text" class="form-control" placeholder="Your name">
+                <input type="text" class="form-control" name="name" placeholder="Your name">
             </div>
             
             <div class="">
                 <label for="subtitlegreet" class="form-label mt-1">Subtitle</label>
-                <input type="text" class="form-control" id="subtitlegreet" placeholder="A computer science student from Brazil">
+                <input type="text" class="form-control" name="subtitle" placeholder="A computer science student from Brazil">
             </div>
         </fieldset>
 
         <fieldset class="border p-2 mb-2 row gx-2">
             <legend class="legend w-auto mb-0">More about you</legend>
 
-            {% for key, value in more_about_you.items() %}
+            {% for about_you in more_about_you %}
                 <div class="col-md-3 mb-2">
-                    <input type="text" class="form-control" value="{{ key }}">
+                    <input name="more_about_you_key" type="text" class="form-control" value="{{ about_you['prefix'] }}">
                 </div>
 
                 <div class="col-md-9 mb-2">
-                    <input type="text" class="form-control" placeholder="{{ value }}">
+                    <input name="more_about_you_value" type="text" class="form-control" placeholder="{{ about_you['place_holder'] }}">
                 </div>
             {% endfor %}
         </fieldset>
@@ -46,12 +46,12 @@
         <fieldset class="border p-2 mb-2 row gx-2">
             <legend class="legend w-auto mb-0">Your Social Medias</legend>
             
-            {% for key, value in social_medias.items() %}
+            {% for social in social_medias %}
                 <div class="d-flex justify-content-start w-50 my-1">
                     <div class="divSocialBadges d-flex justify-content-end">
-                        <img src="{{ value }}" class="socialbadges mx-2">
+                        <img src="{{ social['link'] }}" class="socialbadges mx-2">
                     </div>
-                    <input type="text" class="form-control w-50" placeholder="{{ key }}">
+                    <input type="text" class="form-control w-50" placeholder="{{ social['name'] }}">
                 </div>
             {% endfor %}
         </fieldset>
@@ -100,17 +100,22 @@
                 </label>
             </div>
         </fieldset>
+
+        <ul></ul>
         
         <fieldset class="border p-2 mb-2 row gx-2 d-flex justify-content-center">
             <legend class="legend w-auto mb-0">Your Skills</legend>
-            {% for key, value in skills.items() %}
-                <div class="form-check mx-2 my-4 col-2 d-flex justify-content-center">
-                    <input class="form-check-input" type="checkbox" value="{{ key }}">
-                    <img src="{{ value }}" class="skillsImage ms-4">
-                </div>
-            {% endfor %}
+            <div id="skillsdiv" class="row">
+                {% for skill in skills %}
+                    <div class="form-check mx-2 my-4 col-2 d-flex justify-content-center">
+                        <input class="form-check-input" type="checkbox" value="{{ skill['skill'] }}">
+                        <img src="{{ skill['link'] }}" class="skillsImage ms-4">
+                    </div>
+                {% endfor %}
+            </div>
         </fieldset>
-
+        <!-- <input type="text" class="form-control" value="SUBMIT ME" id="submitme"> -->
+        <input type="submit">
     </form>
-    
+
 {% endblock %}
