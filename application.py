@@ -25,6 +25,8 @@ def profile():
 @app.route('/submit', methods=['POST'])
 def submit():
     markdown = ''
+
+    # Greet Section
     name = request.form.get('name')
     if name != '':
         title = request.form.get('title')
@@ -34,17 +36,74 @@ def submit():
     if subtitle != '':
         markdown += '### ' + subtitle + '\n'
 
-    more_about_you_keys = request.form.getlist('more_about_you_key')
-    more_about_you_values = request.form.getlist('more_about_you_value')
-    more_about_you = {}
-    for i in range(0, len(more_about_you_values)):
-        if more_about_you_values[i] != '':
-            more_about_you[more_about_you_keys[i]] = more_about_you_values[i]
+    # More About You Section
+    about_you_keys = request.form.getlist('more_about_you_key')
+    about_you_values = request.form.getlist('more_about_you_value')
+    about_you = {}
+    for i in range(0, len(about_you_values)):
+        if about_you_values[i] != '':
+            about_you[about_you_keys[i]] = about_you_values[i]
     
-    if len(more_about_you) != 0:
+    if len(about_you) != 0:
         markdown += '## About me\n'
-        for key, value in more_about_you.items():
+        for key, value in about_you.items():
             markdown += key + ' ' + value + '\n\n'
+
+    # Social Medias Section
+    social_badges = db.execute("SELECT * FROM social_medias")
+
+    markdown += '## Contact me:\n'
+
+    gmail = request.form.get('gmail')
+    if gmail != '':
+        markdown += '[![Gmail Badge](' + social_badges[0]['link'] + ')](mailto:' + gmail + ')&nbsp;\n' 
+        
+    github = request.form.get('github username')
+    if github != '':
+        markdown += '[![Github Badge](' + social_badges[2]['link'] + ')](https://www.github.com/' + github + ')&nbsp;\n'
+
+    twitch = request.form.get('twich')
+    if twitch != '':
+        markdown += '[![Twitch Badge](' + social_badges[4]['link'] + ')](https://www.twitch.tv/' + twitch + ')&nbsp;\n'
+
+    linkedin = request.form.get('linkedin')
+    if linkedin != '':
+        markdown += '[![Linkedin Badge](' + social_badges[6]['link'] + ')](https://www.linkedin.com/in/' + linkedin + ')&nbsp;\n'
+
+    instagram = request.form.get('instagram')
+    if instagram != '':
+        markdown += '[![Instagram Badge](' + social_badges[8]['link'] + ')](https://www.instagram.com/' + instagram + ')&nbsp;\n'
+
+    devto = request.form.get('dev.to')
+    if devto != '':
+        markdown += '[![Dev.to Badge](' + social_badges[1]['link'] + ')](https://dev.to/' + devto + ')&nbsp;\n'
+
+    tiktok = request.form.get('tiktok')
+    if tiktok != '':
+        markdown += '[![Tiktok Badge](' + social_badges[3]['link'] + ')](https://www.tiktok.com/' + tiktok + ')&nbsp;\n'
+
+    medium = request.form.get('medium')
+    if medium != '':
+        markdown += '[![Medium Badge](' + social_badges[5]['link'] + ')](https://' + medium + '.medium.com/)&nbsp;\n'
+
+    twitter = request.form.get('twitter')
+    if twitter != '':
+        markdown += '[![Twitter Badge](' + social_badges[7]['link'] + ')](https://twitter.com/' + twitch + ')&nbsp;\n'
+
+    youtube = request.form.get('youtube')
+    if youtube != '':
+        markdown += '[![Youtube Badge](' + social_badges[9]['link'] + ')](https://www.youtube.com/channel/' + youtube + ')&nbsp;\n'
+    
+    # Cool Features Section
+
+
+    # Skills Section
+    skill_name = request.form.getlist('skill_name')
+    
+    if len(skill_name) > 0:
+        markdown += '## My Skills\n'
+        for skill in skill_name:
+            markdown += '<img src="' + request.form.get(skill) + '" alt="' + skill + ' Badge" height="50" width="50">&nbsp;\n'
 
 
     print(markdown)
