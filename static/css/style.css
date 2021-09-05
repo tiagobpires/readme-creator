@@ -3,7 +3,7 @@
     padding: inherit; 
 }
 
-textarea:focus, input:focus, select:focus {
+textarea:focus, input:focus, select:focus, button:focus {
     box-shadow: 0 0 0 0 !important;
 } 
 
@@ -19,4 +19,8 @@ textarea:focus, input:focus, select:focus {
 .skillsImage {
     height: 70px !important;
     width: 70px !important;
+}
+
+.features_settings_input {
+    width: 120px !important;
 }

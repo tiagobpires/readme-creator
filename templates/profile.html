@@ -62,81 +62,163 @@
 
             <div class="row">        
                 <label for="ghusername" class="col-8 fw-bold px-0 ms-auto">Please fill in your github username for correctly work of the features</label>        
-                <input type="text" class="form-control col-4 me-auto" id="ghusername" placeholder="GitHub username" style="height: 33px; width: 20%;">
+                <input name="github_features_username" type="text" class="form-control col-4 me-auto" id="ghusername" placeholder="GitHub username" style="height: 33px; width: 20%;">
             </div>
-
+            
+            <!-- Github Status -->
             <div class="form-check my-1">
-                <input class="form-check-input" type="checkbox" value="" id="ghstatus">
+                <input name="gh_status_check" class="form-check-input" type="checkbox" value="true" id="ghstatus">
                 <label class="form-check-label" for="ghstatus">
                   GitHub Status
                 </label> 
 
-                <div class="form-check my-1 ps-0">
-                    <select class="form-select">
-                        <option selected>Themes</option>
-                        <option value="default">default</option>
-                        <option value="dark">dark</option>
-                        <option value="radical">radical</option>
-                        <option value="merko">merko</option>
-                        <option value="gruvbox">gruvbox</option>
-                        <option value="tokyonight">tokyonight</option>
-                        <option value="onedark">onedark</option>
-                        <option value="cobalt">cobalt</option>
-                        <option value="synthwave">synthwave</option>
-                        <option value="highcontrast">highcontrast</option>
-                        <option value="dracula">dracula</option>
-                    </select>
-                </div>
+                <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_status_settings')">⚙️</button>
 
-                <div class="form-check my-1">
-                    <input class="form-check-input" type="checkbox" value="" id="show_icons_stats">
-                    <label class="form-check-label" for="show_icons_stats">
-                    Show icons
-                    </label>
-                </div>
+                <div id="gh_status_settings" style="display: none;">
+                    <div class="form-check my-1">
+                        <input name="gh_status_show_icons" class="form-check-input" type="checkbox" value="show" id="show_icons_stats" checked>
+                        <label class="form-check-label" for="show_icons_stats">
+                        Show icons
+                        </label>
+                    </div>
 
-                <p class="m-1">Hide individual stats</p>
-                <div class="form-check form-check-inline" id="hide_individual_stats">
-                    <input class="form-check-input" type="checkbox" id="stars" value="stars">
-                    <label class="form-check-label" for="stars">stars</label>
-                  </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="commits" value="commits">
-                    <label class="form-check-label" for="commits">commits</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="prs" value="prs">
-                    <label class="form-check-label" for="prs">prs</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="issues" value="issues">
-                    <label class="form-check-label" for="issues">issues</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="contribs" value="contribs">
-                    <label class="form-check-label" for="contribs">contribs</label>
+                    <div class="form-check my-1">
+                        <input name="gh_status_count_private_contribs" class="form-check-input" type="checkbox" value="cont" id="cont_private_contribs" checked>
+                        <label class="form-check-label" for="cont_private_contribs">
+                        Count commits to privates repositories
+                        </label>
+                    </div>
+
+                    <div class="form-check my-1 ps-0">
+                        <label>Themes</label>
+                        <select name="gh_status_theme" class="form-select py-1 ps-2 features_settings_input">
+                            <option value="default" selected>Default</option>
+                            {% for theme in themes %}
+                                <option value="{{ theme }}">{{ theme|title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <p class="m-1">Hide individual stats</p>
+                    <div class="form-check form-check-inline" id="hide_individual_stats">
+                        <input name="gh_status_hide" class="form-check-input" type="checkbox" id="stars" value="stars">
+                        <label class="form-check-label" for="stars">stars</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="gh_status_hide" class="form-check-input" type="checkbox" id="commits" value="commits">
+                        <label class="form-check-label" for="commits">commits</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="gh_status_hide" class="form-check-input" type="checkbox" id="prs" value="prs">
+                        <label class="form-check-label" for="prs">prs</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="gh_status_hide" class="form-check-input" type="checkbox" id="issues" value="issues">
+                        <label class="form-check-label" for="issues">issues</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="gh_status_hide" class="form-check-input" type="checkbox" id="contribs" value="contribs">
+                        <label class="form-check-label" for="contribs">contribs</label>
+                    </div>
                 </div>
             </div>
 
+            <!-- Top Languages Card -->
             <div class="form-check my-1">
-                <input class="form-check-input" type="checkbox" value="" id="ghlanguages">
-                <label class="form-check-label" for="ghlanguages">
-                  Most used languages
+                <input name="gh_top_languages_check" class="form-check-input" type="checkbox" value="true" id="gh_top_languages">
+                <label class="form-check-label" for="gh_top_languages">
+                    Top Languages Card
                 </label>
+
+                <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_top_languages_settings')">⚙️</button>
+
+                <div id="gh_top_languages_settings" style="display: none;">
+                    <div class="form-check my-1">
+                        <input name="top_langs_layout" class="form-check-input" type="checkbox" value="compact" id="tl_layout" checked>
+                        <label class="form-check-label" for="tl_layout">
+                        Compact Layout
+                        </label>
+                    </div>
+
+                    <div class="form-check my-1 ps-0">
+                        <label>Themes</label>
+                        <select name="top_langs_theme" class="form-select py-1 ps-2 features_settings_input">
+                            <option value="default" selected>Default</option>
+                            {% for theme in themes %}
+                                <option value="{{ theme }}">{{ theme|title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-check my-1 ps-0">
+                        <label>Number of Languages showed</label>
+                        <select name="top_langs_count" class="form-select py-1 ps-2 features_settings_input">
+                            {% for n in range(1,11) %}
+                                {% if n == 5 %}
+                                    <option value="5" selected>5</option>
+                                {% else %}
+                                    <option value="{{ n }}">{{ n }}</option>
+                                {% endif %}
+                                
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
             </div>
 
+            <!-- Profile Views -->
             <div class="form-check my-1">
-                <input class="form-check-input" type="checkbox" value="" id="ghviews">
+                <input name="gh_views_check" class="form-check-input" type="checkbox" value="true" id="ghviews">
                 <label class="form-check-label" for="ghviews">
                   Profile views
                 </label>
+
+                <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_views_settings')">⚙️</button>
+
+                <div id="gh_views_settings" style="display: none;">
+                    <div class="form-check my-1 ps-0">
+                        <label>Color</label>
+                        <select name="gh_views_color" class="form-select py-1 ps-2 features_settings_input">
+                            <option value="blue" selected>Blue</option>
+                            <option value="ff69b4">Pink</option>
+                            {% for color in colors %}
+                                <option value="{{ color }}">{{ color|title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-check my-1 ps-0">
+                        <label>Styles</label>
+                        <select name="gh_views_style" class="form-select py-1 ps-2 features_settings_input">
+                            <option value="flat" selected>Flat</option>
+                            <option value="flat-square">Flat-square</option>
+                            <option value="plastic">Plastic</option>
+                        </select>
+                    </div>
+                    
+                    <label for="gh_views_label">Label</label>
+                    <input name="gh_views_label" type="text" class="form-control py-1 ps-2 features_settings_input" value="Profile Views" id="gh_views_label">
+                </div>
             </div>
 
+
+            <!-- Streak Stats -->
             <div class="form-check my-1">
-                <input class="form-check-input" type="checkbox" value="" id="ghstreak">
-                <label class="form-check-label" for="ghstreak">
+                <input name="gh_streak_stats_check" class="form-check-input" type="checkbox" value="true" id="gh_streak">
+                <label class="form-check-label" for="gh_streak">
                   Streak Stats
                 </label>
+
+                <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('streak_stats_settings')">⚙️</button>
+
+                <div id="streak_stats_settings" style="display: none;">
+                    <select name="streak_stats_theme" class="form-select py-1 ps-2 features_settings_input">
+                        <option value="default" selected>Default</option>
+                        {% for theme in themes %}
+                            <option value="{{ theme }}">{{ theme|title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
 
             <div class="form-check my-1">
@@ -165,4 +247,17 @@
         <input type="submit">
     </form>
 
+{% endblock %}
+
+{% block script %}
+<script>
+    function displaySettings(id) {
+        let div = document.getElementById(id);
+        if (div.style.display === "none") {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
+    }
+</script>
 {% endblock %}
