@@ -1,6 +1,6 @@
 from cs50 import SQL
-from flask import Flask, json, render_template, request, jsonify
-
+from flask import Flask, render_template, request
+import markdown
 app = Flask(__name__)
 
 db = SQL('sqlite:///database.db')
@@ -43,17 +43,17 @@ def profile():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    markdown = ''
+    markdown_str = ''
 
     # Greet Section
     name = request.form.get('name')
     if name != '':
         title = request.form.get('title')
-        markdown += '# ' + title + ' ' + name + '\n'
+        markdown_str += '# ' + title + ' ' + name + '\n'
 
     subtitle = request.form.get('subtitle')
     if subtitle != '':
-        markdown += '### ' + subtitle + '\n'
+        markdown_str += '### ' + subtitle + '\n'
 
     # More About You Section
     prefix = request.form.getlist('more_about_you_prefix')
@@ -63,10 +63,10 @@ def submit():
     for i in range(len(info)):
         if info[i] != '':
             if title == False:
-                markdown += '## About me\n'
+                markdown_str += '## About me\n'
                 title = True
 
-            markdown += prefix[i] + ' ' + info[i] + '\n\n'
+            markdown_str += prefix[i] + ' ' + info[i] + '\n\n'
 
     # Social Medias Section
     username = request.form.getlist('social_media_input')
@@ -77,39 +77,39 @@ def submit():
     for i in range(len(username)):
         if username[i] != '':
             if title == False:
-                markdown += '## Contact me:\n'
+                markdown_str += '## Contact me:\n'
                 title = True
 
-            markdown += '[![' + str(name[i]).capitalize() + ' Badge]'
-            markdown += '(' + str(link[i]['badge']) + ')]'
-            markdown += '(' + str(link[i]['link']).replace('username', str(username[i])) + ')&nbsp;\n'
+            markdown_str += '[![' + str(name[i]).capitalize() + ' Badge]'
+            markdown_str += '(' + str(link[i]['badge']) + ')]'
+            markdown_str += '(' + str(link[i]['link']).replace('username', str(username[i])) + ')&nbsp;\n'
     
 
     # Skills Section
     skill_name = request.form.getlist('skill_name')
     
     if len(skill_name) > 0:
-        markdown += '## My Skills\n'
+        markdown_str += '## My Skills\n'
         for skill in skill_name:
-            markdown += '<img src="' + request.form.get(skill) + '" alt="' + skill + ' Badge" height="50" width="50">&nbsp;\n'
+            markdown_str += '<img src="' + request.form.get(skill) + '" alt="' + skill + ' Badge" height="50" width="50">&nbsp;\n'
 
     # Cool Features Section
 
     # Github Status
     if request.form.get('gh_status_check') == 'true':
-        markdown += '![GitHub stats](' + str(request.form.get('gh_status_url')) + ')\n'
+        markdown_str += '![GitHub stats](' + str(request.form.get('gh_status_url')) + ')\n'
 
     # Top Languages Card
     if request.form.get('gh_top_languages_check') == 'true':        
-        markdown += '![Top Languages](' + str(request.form.get('top_languages_url')) + ')\n'
+        markdown_str += '![Top Languages](' + str(request.form.get('top_languages_url')) + ')\n'
 
     # Profile Views
     if request.form.get('gh_views_check') == 'true':
-        markdown += '![Profile Views](' + str(request.form.get('profile_views_url')) + ')\n'
+        markdown_str += '![Profile Views](' + str(request.form.get('profile_views_url')) + ')\n'
 
     # Streak Stats
     if request.form.get('gh_streak_stats_check') == 'true':
-        markdown += '![Streak Stats](' + str(request.form.get('streak_stats_url')) + ')\n'
+        markdown_str += '![Streak Stats](' + str(request.form.get('streak_stats_url')) + ')\n'
 
-    print(markdown)
-    return markdown
+    print(markdown_str)
+    return markdown.markdown(markdown_str)
