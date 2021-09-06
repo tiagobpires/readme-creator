@@ -33,7 +33,7 @@
 
             {% for about_you in more_about_you %}
                 <div class="col-md-3 mb-2">
-                    <input name="more_about_you_key" type="text" class="form-control" value="{{ about_you['prefix'] }}">
+                    <input name="more_about_you_key" type="text" class="form-control  border-top-0 border-start-0 border-end-0 about_you_prefix" value="{{ about_you['prefix'] }}">
                 </div>
 
                 <div class="col-md-9 mb-2">
@@ -64,16 +64,16 @@
                 <label for="ghusername" class="col-8 fw-bold px-0 ms-auto">Please fill in your github username for correctly work of the features</label>        
                 <input name="github_features_username" type="text" class="form-control col-4 me-auto" id="ghusername" placeholder="GitHub username" style="height: 33px; width: 20%;">
             </div>
-            
+
             <div class="row align-items-center mx-2">
                 <!-- Github Status -->
-                <div class="form-check my-1 col-md-6 align-self-start">
+                <div class="form-check my-1 col-xl-6 align-self-start" id="gh_status_div" onchange="gh_status_preview()">
                     <input name="gh_status_check" class="form-check-input cool_features_check" type="checkbox" value="true" id="ghstatus">
                     <label class="form-check-label" for="ghstatus">
                     GitHub Status
                     </label> 
 
-                    <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_status_settings')">⚙️</button>
+                    <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_status_settings'); gh_status_preview()">⚙️</button>
 
                     <div id="gh_status_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
                         <div class="form-check my-1">
@@ -92,7 +92,7 @@
 
                         <div class="form-check my-1 ps-0">
                             <label>Themes:</label>
-                            <select name="gh_status_theme" class="form-select py-1 ps-2 features_settings_input">
+                            <select name="gh_status_theme" class="form-select py-1 ps-2 features_settings_input" id="gh_status_theme">
                                 <option value="default" selected>Default</option>
                                 {% for theme in themes %}
                                     <option value="{{ theme }}">{{ theme|title }}</option>
@@ -102,36 +102,40 @@
 
                         <p class="m-1">Hide individual stats:</p>
                         <div class="form-check form-check-inline" id="hide_individual_stats">
-                            <input name="gh_status_hide" class="form-check-input" type="checkbox" id="stars" value="stars">
+                            <input name="gh_status_hide" class="form-check-input gh_status_hide" type="checkbox" id="stars" value="stars">
                             <label class="form-check-label" for="stars">stars</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="gh_status_hide" class="form-check-input" type="checkbox" id="commits" value="commits">
+                            <input name="gh_status_hide" class="form-check-input gh_status_hide" type="checkbox" id="commits" value="commits">
                             <label class="form-check-label" for="commits">commits</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="gh_status_hide" class="form-check-input" type="checkbox" id="prs" value="prs">
+                            <input name="gh_status_hide" class="form-check-input gh_status_hide" type="checkbox" id="prs" value="prs">
                             <label class="form-check-label" for="prs">prs</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="gh_status_hide" class="form-check-input" type="checkbox" id="issues" value="issues">
+                            <input name="gh_status_hide" class="form-check-input gh_status_hide" type="checkbox" id="issues" value="issues">
                             <label class="form-check-label" for="issues">issues</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="gh_status_hide" class="form-check-input" type="checkbox" id="contribs" value="contribs">
+                            <input name="gh_status_hide" class="form-check-input gh_status_hide" type="checkbox" id="contribs" value="contribs">
                             <label class="form-check-label" for="contribs">contribs</label>
+                        </div>
+
+                        <div id="gh_status_preview" class="d-flex justify-content-center mt-2">
+                            <img src="" alt="github status" class="features_preview">
                         </div>
                     </div>
                 </div>
 
                 <!-- Top Languages Card -->
-                <div class="form-check my-1 col-md-6 align-self-start">
+                <div class="form-check my-1 col-xl-6 align-self-start" id="gh_top_languages_div" onchange="top_languages_preview()">
                     <input name="gh_top_languages_check" class="form-check-input cool_features_check" type="checkbox" value="true" id="gh_top_languages">
                     <label class="form-check-label" for="gh_top_languages">
                         Top Languages Card
                     </label>
 
-                    <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_top_languages_settings')">⚙️</button>
+                    <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_top_languages_settings');top_languages_preview();">⚙️</button>
 
                     <div id="gh_top_languages_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
                         <div class="form-check my-1">
@@ -143,7 +147,7 @@
 
                         <div class="form-check my-1 ps-0">
                             <label>Themes:</label>
-                            <select name="top_langs_theme" class="form-select py-1 ps-2 features_settings_input">
+                            <select name="top_langs_theme" class="form-select py-1 ps-2 features_settings_input" id="top_langs_theme">
                                 <option value="default" selected>Default</option>
                                 {% for theme in themes %}
                                     <option value="{{ theme }}">{{ theme|title }}</option>
@@ -153,7 +157,7 @@
 
                         <div class="form-check my-1 ps-0">
                             <label>Number of Languages showed:</label>
-                            <select name="top_langs_count" class="form-select py-1 ps-2 features_settings_input">
+                            <select name="top_langs_count" class="form-select py-1 ps-2 features_settings_input" id="top_langs_count">
                                 {% for n in range(1,11) %}
                                     {% if n == 5 %}
                                         <option value="5" selected>5</option>
@@ -163,23 +167,26 @@
                                 {% endfor %}
                             </select>
                         </div>
+                        <div id="top_languages_preview" class="d-flex justify-content-center mt-2">
+                            <img src="" alt="top languages" class="features_preview">
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="row align-items-center mx-2">
                 <!-- Profile Views -->
-                <div class="form-check my-1 col-md-6 align-self-start">
+                <div class="form-check my-1 col-xl-6 align-self-start" id="profile_views_div" onchange="profile_views_preview()">
                     <input name="gh_views_check" class="form-check-input cool_features_check" type="checkbox" value="true" id="ghviews">
                     <label class="form-check-label" for="ghviews">
-                    Profile views
+                    Profile Views
                     </label>
 
-                    <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_views_settings')">⚙️</button>
+                    <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_views_settings');profile_views_preview();">⚙️</button>
                     <div id="gh_views_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
                         <div class="mb-1 ps-0">
                             <label>Color:</label>
-                            <select name="gh_views_color" class="form-select py-1 ps-2 features_settings_input">
+                            <select name="gh_views_color" class="form-select py-1 ps-2 features_settings_input" id="gh_views_color">
                                 <option value="blue" selected>Blue</option>
                                 <option value="ff69b4">Pink</option>
                                 {% for color in colors %}
@@ -190,7 +197,7 @@
 
                         <div class="my-1 ps-0">
                             <label>Styles:</label>
-                            <select name="gh_views_style" class="form-select py-1 ps-2 features_settings_input">
+                            <select name="gh_views_style" class="form-select py-1 ps-2 features_settings_input" id="gh_views_style">
                                 <option value="flat" selected>Flat</option>
                                 <option value="flat-square">Flat-square</option>
                                 <option value="plastic">Plastic</option>
@@ -199,37 +206,37 @@
                         
                         <label for="gh_views_label">Label</label>
                         <input name="gh_views_label" type="text" class="form-control py-1 ps-2 features_settings_input" value="Profile Views" id="gh_views_label">
+                        
+                        <div id="profile_views_preview" class="d-flex justify-content-center mt-2">
+                            <img src="" alt="profile views" class="features_preview">
+                        </div>
                     </div>
                 </div>
 
-
                 <!-- Streak Stats -->
-                <div class="form-check my-1 col-md-6 align-self-start">
+                <div class="form-check my-1 col-xl-6 align-self-start" id="streak_stats_div" onchange="streak_stats_preview()">
                     <input name="gh_streak_stats_check" class="form-check-input cool_features_check" type="checkbox" value="true" id="gh_streak">
                     <label class="form-check-label" for="gh_streak">
                     Streak Stats
                     </label>
 
-                    <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('streak_stats_settings')">⚙️</button>
+                    <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('streak_stats_settings');streak_stats_preview();">⚙️</button>
 
                     <div id="streak_stats_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
                         <label>Themes:</label>
-                        <select name="streak_stats_theme" class="form-select py-1 ps-2 features_settings_input">
+                        <select name="streak_stats_theme" class="form-select py-1 ps-2 features_settings_input" id="streak_stats_theme">
                             <option value="default" selected>Default</option>
                             {% for theme in themes %}
                                 <option value="{{ theme }}">{{ theme|title }}</option>
                             {% endfor %}
                         </select>
+
+                        <div id="streak_stats_preview" class="d-flex justify-content-center mt-2">
+                            <img src="" alt="streak stats" class="features_preview">
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="form-check my-1">
-                <input class="form-check-input" type="checkbox" value="" id="ghtrophy">
-                <label class="form-check-label" for="ghtrophy">
-                  Profile Trophy
-                </label>
-            </div> -->
         </fieldset>
 
         <fieldset class="border p-2 mb-2 row gx-2 d-flex justify-content-center">
@@ -239,7 +246,7 @@
                     <div class="form-check my-4 col-6 col-md-4 col-xl-3 d-flex justify-content-center">
                         <input name="skill_name" class="form-check-input" type="checkbox" value="{{ skill['name'] }}">
                         <input name="{{ skill['name'] }}" class="visually-hidden" value="{{ skill['link'] }}">
-                        <img src="{{ skill['link'] }}" class="skillsImage ms-4"  data-bs-toggle="tooltip">
+                        <img src="{{ skill['link'] }}" class="skillsImage ms-4">
                     </div>
                 {% endfor %}
             </div>
@@ -257,7 +264,7 @@
         let div = document.getElementById(id);
         if (div.style.display === "none") {
             div.style.display = "block";
-        } else {
+        } else {                          
             div.style.display = "none";
         }
     }
@@ -266,5 +273,69 @@
     social_github.addEventListener("keyup", function() {
         document.getElementById("ghusername").value = social_github.value;
     });
+
+
+    // Preview for Github Status Feature
+    function gh_status_preview(){
+        let imageUrl = "https://github-readme-stats.vercel.app/api?username=" + document.getElementById("ghusername").value;
+
+        imageUrl += "&theme=" + document.getElementById("gh_status_theme").value;
+        
+        imageUrl += "&show_icons=" + document.getElementById("show_icons_stats").checked;
+
+        imageUrl += "&count_private=" + document.getElementById("cont_private_contribs").checked;
+        
+        hide_stats = document.querySelectorAll(".gh_status_hide:checked");
+        if (hide_stats.length > 0) {
+            imageUrl += '&hide=' + hide_stats[0].value;
+            for (let i = 1; i < hide_stats.length; i++) {
+                imageUrl += ',' + hide_stats[i].value;
+            }
+        }
+
+        document.getElementById("gh_status_preview").innerHTML = '<img src="' + imageUrl + '" class="features_preview" >';
+    }
+
+
+    // Preview for Top Languages Feature
+    function top_languages_preview(){
+
+    let imageUrl = "https://github-readme-stats.vercel.app/api/top-langs/?username=" + document.getElementById("ghusername").value;
+    imageUrl += "&theme=" + document.getElementById("top_langs_theme").value;
+
+    if (document.getElementById("tl_layout").checked) {
+        imageUrl += "&layout=compact";
+    }
+
+    imageUrl += "&langs_count=" +  document.getElementById("top_langs_count").value;
+
+    document.getElementById("top_languages_preview").innerHTML = '<img src="' + imageUrl + '" class="features_preview">';
+    }
+
+    // Preview for Profile Views Feature
+    function profile_views_preview(){
+        let imageUrl = "https://komarev.com/ghpvc/?username=" + document.getElementById("ghusername").value;
+        imageUrl += "&theme=" + document.getElementById("top_langs_theme").value;
+
+        imageUrl += "&color=" +  document.getElementById("gh_views_color").value;
+
+        imageUrl += "&style=" +  document.getElementById("gh_views_style").value;
+
+        label = String(document.getElementById("gh_views_label").value);
+        label = label.replace(' ', '+');
+        imageUrl += "&label=" + label;
+
+        document.getElementById("profile_views_preview").innerHTML = '<img src="' + imageUrl + '" class="features_preview">';
+    }
+
+    // Preview for Streak Stats Feature
+    function streak_stats_preview(){
+        let imageUrl = "https://github-readme-streak-stats.herokuapp.com/?user=" + document.getElementById("ghusername").value;
+        
+        imageUrl += "&theme=" + document.getElementById("streak_stats_theme").value;
+
+        document.getElementById("streak_stats_preview").innerHTML = '<img src="' + imageUrl + '" class="features_preview" >';
+    }
+
 </script>
 {% endblock %}

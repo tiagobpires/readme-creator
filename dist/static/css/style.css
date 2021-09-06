@@ -24,3 +24,11 @@ textarea:focus, input:focus, select:focus, button:focus {
 .features_settings_input {
     width: 120px !important;
 }
+
+.about_you_prefix {
+    width: 280px !important;
+}
+
+.features_preview {
+    max-width: 430px !important;
+}
