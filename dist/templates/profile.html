@@ -56,7 +56,7 @@
             {% endfor %}
         </fieldset>
 
-
+        <!-- Cool Features -->
         <fieldset class="border p-2 mb-2 row gx-2">
             <legend class="legend w-auto mb-0">Cool features</legend>          
 
@@ -77,14 +77,14 @@
 
                     <div id="gh_status_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
                         <div class="form-check my-1">
-                            <input name="gh_status_show_icons" class="form-check-input" type="checkbox" value="show" id="show_icons_stats" checked>
+                            <input class="form-check-input" type="checkbox" value="show" id="show_icons_stats" checked>
                             <label class="form-check-label" for="show_icons_stats">
                             Show icons
                             </label>
                         </div>
 
                         <div class="form-check my-1">
-                            <input name="gh_status_count_private_contribs" class="form-check-input" type="checkbox" value="cont" id="cont_private_contribs" checked>
+                            <input class="form-check-input" type="checkbox" value="cont" id="cont_private_contribs" checked>
                             <label class="form-check-label" for="cont_private_contribs">
                             Count commits to privates repositories
                             </label>
@@ -92,7 +92,7 @@
 
                         <div class="form-check my-1 ps-0">
                             <label>Themes:</label>
-                            <select name="gh_status_theme" class="form-select py-1 ps-2 features_settings_input" id="gh_status_theme">
+                            <select class="form-select py-1 ps-2 features_settings_input" id="gh_status_theme">
                                 <option value="default" selected>Default</option>
                                 {% for theme in themes %}
                                     <option value="{{ theme }}">{{ theme|title }}</option>
@@ -102,28 +102,29 @@
 
                         <p class="m-1">Hide individual stats:</p>
                         <div class="form-check form-check-inline" id="hide_individual_stats">
-                            <input name="gh_status_hide" class="form-check-input gh_status_hide" type="checkbox" id="stars" value="stars">
+                            <input class="form-check-input gh_status_hide" type="checkbox" id="stars" value="stars">
                             <label class="form-check-label" for="stars">stars</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="gh_status_hide" class="form-check-input gh_status_hide" type="checkbox" id="commits" value="commits">
+                            <input class="form-check-input gh_status_hide" type="checkbox" id="commits" value="commits">
                             <label class="form-check-label" for="commits">commits</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="gh_status_hide" class="form-check-input gh_status_hide" type="checkbox" id="prs" value="prs">
+                            <input class="form-check-input gh_status_hide" type="checkbox" id="prs" value="prs">
                             <label class="form-check-label" for="prs">prs</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="gh_status_hide" class="form-check-input gh_status_hide" type="checkbox" id="issues" value="issues">
+                            <input class="form-check-input gh_status_hide" type="checkbox" id="issues" value="issues">
                             <label class="form-check-label" for="issues">issues</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="gh_status_hide" class="form-check-input gh_status_hide" type="checkbox" id="contribs" value="contribs">
+                            <input class="form-check-input gh_status_hide" type="checkbox" id="contribs" value="contribs">
                             <label class="form-check-label" for="contribs">contribs</label>
                         </div>
 
                         <div id="gh_status_preview" class="d-flex justify-content-center mt-2">
-                            <img src="" alt="github status" class="features_preview">
+                            <input name="gh_status_url" class="visually-hidden" value="">
+                            <img src="" alt="github status" id="gh_status_img" class="w-100">
                         </div>
                     </div>
                 </div>
@@ -139,7 +140,7 @@
 
                     <div id="gh_top_languages_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
                         <div class="form-check my-1">
-                            <input name="top_langs_layout" class="form-check-input" type="checkbox" value="compact" id="tl_layout" checked>
+                            <input class="form-check-input" type="checkbox" value="compact" id="tl_layout" checked>
                             <label class="form-check-label" for="tl_layout">
                                 Compact Layout
                             </label>
@@ -147,7 +148,7 @@
 
                         <div class="form-check my-1 ps-0">
                             <label>Themes:</label>
-                            <select name="top_langs_theme" class="form-select py-1 ps-2 features_settings_input" id="top_langs_theme">
+                            <select class="form-select py-1 ps-2 features_settings_input" id="top_langs_theme">
                                 <option value="default" selected>Default</option>
                                 {% for theme in themes %}
                                     <option value="{{ theme }}">{{ theme|title }}</option>
@@ -157,7 +158,7 @@
 
                         <div class="form-check my-1 ps-0">
                             <label>Number of Languages showed:</label>
-                            <select name="top_langs_count" class="form-select py-1 ps-2 features_settings_input" id="top_langs_count">
+                            <select class="form-select py-1 ps-2 features_settings_input" id="top_langs_count">
                                 {% for n in range(1,11) %}
                                     {% if n == 5 %}
                                         <option value="5" selected>5</option>
@@ -168,7 +169,8 @@
                             </select>
                         </div>
                         <div id="top_languages_preview" class="d-flex justify-content-center mt-2">
-                            <img src="" alt="top languages" class="features_preview">
+                            <input name="top_languages_url" class="visually-hidden" value="">
+                            <img src="" alt="top languages" id="top_languages_img" class="w-100">
                         </div>
                     </div>
                 </div>
@@ -186,7 +188,7 @@
                     <div id="gh_views_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
                         <div class="mb-1 ps-0">
                             <label>Color:</label>
-                            <select name="gh_views_color" class="form-select py-1 ps-2 features_settings_input" id="gh_views_color">
+                            <select class="form-select py-1 ps-2 features_settings_input" id="gh_views_color">
                                 <option value="blue" selected>Blue</option>
                                 <option value="ff69b4">Pink</option>
                                 {% for color in colors %}
@@ -197,7 +199,7 @@
 
                         <div class="my-1 ps-0">
                             <label>Styles:</label>
-                            <select name="gh_views_style" class="form-select py-1 ps-2 features_settings_input" id="gh_views_style">
+                            <select class="form-select py-1 ps-2 features_settings_input" id="gh_views_style">
                                 <option value="flat" selected>Flat</option>
                                 <option value="flat-square">Flat-square</option>
                                 <option value="plastic">Plastic</option>
@@ -205,10 +207,11 @@
                         </div>
                         
                         <label for="gh_views_label">Label</label>
-                        <input name="gh_views_label" type="text" class="form-control py-1 ps-2 features_settings_input" value="Profile Views" id="gh_views_label">
+                        <input type="text" class="form-control py-1 ps-2 features_settings_input" value="Profile Views" id="gh_views_label">
                         
                         <div id="profile_views_preview" class="d-flex justify-content-center mt-2">
-                            <img src="" alt="profile views" class="features_preview">
+                            <input name="profile_views_url" class="visually-hidden" value="">
+                            <img src="" alt="profile views" id="profile_views_img" class="features_preview">
                         </div>
                     </div>
                 </div>
@@ -224,7 +227,7 @@
 
                     <div id="streak_stats_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
                         <label>Themes:</label>
-                        <select name="streak_stats_theme" class="form-select py-1 ps-2 features_settings_input" id="streak_stats_theme">
+                        <select class="form-select py-1 ps-2 features_settings_input" id="streak_stats_theme">
                             <option value="default" selected>Default</option>
                             {% for theme in themes %}
                                 <option value="{{ theme }}">{{ theme|title }}</option>
@@ -232,21 +235,25 @@
                         </select>
 
                         <div id="streak_stats_preview" class="d-flex justify-content-center mt-2">
-                            <img src="" alt="streak stats" class="features_preview">
+                            <input name="streak_stats_url" class="visually-hidden" value="">
+                            <img src="" alt="streak stats" id="streak_stats_img" class="w-100">
                         </div>
                     </div>
                 </div>
             </div>
         </fieldset>
 
+        <!-- Skills -->
         <fieldset class="border p-2 mb-2 row gx-2 d-flex justify-content-center">
             <legend class="legend w-auto mb-0">Your Skills</legend>
             <div id="skillsdiv" class="row">
                 {% for skill in skills %}
                     <div class="form-check my-4 col-6 col-md-4 col-xl-3 d-flex justify-content-center">
-                        <input name="skill_name" class="form-check-input" type="checkbox" value="{{ skill['name'] }}">
+                        <input name="skill_name" class="form-check-input" type="checkbox" value="{{ skill['name'] }}" id="{{ skill['name'] }}">
                         <input name="{{ skill['name'] }}" class="visually-hidden" value="{{ skill['link'] }}">
-                        <img src="{{ skill['link'] }}" class="skillsImage ms-4">
+                        <label for="{{ skill['name'] }}">
+                            <img src="{{ skill['link'] }}" class="skillsImage ms-4">
+                        </label>
                     </div>
                 {% endfor %}
             </div>
@@ -258,84 +265,5 @@
 {% endblock %}
 
 {% block script %}
-<script>
-    // Hide or set display of div Cool Features Settings
-    function displaySettings(id) {
-        let div = document.getElementById(id);
-        if (div.style.display === "none") {
-            div.style.display = "block";
-        } else {                          
-            div.style.display = "none";
-        }
-    }
-
-    social_github = document.getElementById("github username")
-    social_github.addEventListener("keyup", function() {
-        document.getElementById("ghusername").value = social_github.value;
-    });
-
-
-    // Preview for Github Status Feature
-    function gh_status_preview(){
-        let imageUrl = "https://github-readme-stats.vercel.app/api?username=" + document.getElementById("ghusername").value;
-
-        imageUrl += "&theme=" + document.getElementById("gh_status_theme").value;
-        
-        imageUrl += "&show_icons=" + document.getElementById("show_icons_stats").checked;
-
-        imageUrl += "&count_private=" + document.getElementById("cont_private_contribs").checked;
-        
-        hide_stats = document.querySelectorAll(".gh_status_hide:checked");
-        if (hide_stats.length > 0) {
-            imageUrl += '&hide=' + hide_stats[0].value;
-            for (let i = 1; i < hide_stats.length; i++) {
-                imageUrl += ',' + hide_stats[i].value;
-            }
-        }
-
-        document.getElementById("gh_status_preview").innerHTML = '<img src="' + imageUrl + '" class="features_preview" >';
-    }
-
-
-    // Preview for Top Languages Feature
-    function top_languages_preview(){
-
-    let imageUrl = "https://github-readme-stats.vercel.app/api/top-langs/?username=" + document.getElementById("ghusername").value;
-    imageUrl += "&theme=" + document.getElementById("top_langs_theme").value;
-
-    if (document.getElementById("tl_layout").checked) {
-        imageUrl += "&layout=compact";
-    }
-
-    imageUrl += "&langs_count=" +  document.getElementById("top_langs_count").value;
-
-    document.getElementById("top_languages_preview").innerHTML = '<img src="' + imageUrl + '" class="features_preview">';
-    }
-
-    // Preview for Profile Views Feature
-    function profile_views_preview(){
-        let imageUrl = "https://komarev.com/ghpvc/?username=" + document.getElementById("ghusername").value;
-        imageUrl += "&theme=" + document.getElementById("top_langs_theme").value;
-
-        imageUrl += "&color=" +  document.getElementById("gh_views_color").value;
-
-        imageUrl += "&style=" +  document.getElementById("gh_views_style").value;
-
-        label = String(document.getElementById("gh_views_label").value);
-        label = label.replace(' ', '+');
-        imageUrl += "&label=" + label;
-
-        document.getElementById("profile_views_preview").innerHTML = '<img src="' + imageUrl + '" class="features_preview">';
-    }
-
-    // Preview for Streak Stats Feature
-    function streak_stats_preview(){
-        let imageUrl = "https://github-readme-streak-stats.herokuapp.com/?user=" + document.getElementById("ghusername").value;
-        
-        imageUrl += "&theme=" + document.getElementById("streak_stats_theme").value;
-
-        document.getElementById("streak_stats_preview").innerHTML = '<img src="' + imageUrl + '" class="features_preview" >';
-    }
-
-</script>
+<script src="/static/js/profile.js"></script>
 {% endblock %}

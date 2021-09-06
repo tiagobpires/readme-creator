@@ -29,6 +29,16 @@ textarea:focus, input:focus, select:focus, button:focus {
     width: 280px !important;
 }
 
-.features_preview {
+/* Cool features Section */
+
+#gh_status_img, #streak_stats_img {
     max-width: 430px !important;
+}
+
+#top_languages_img {
+    max-width: 350px !important;
+}
+
+#profile_views_img {
+    max-width: 150px !important;
 }

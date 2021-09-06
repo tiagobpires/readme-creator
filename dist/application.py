@@ -122,68 +122,22 @@ def submit():
             markdown += '<img src="' + request.form.get(skill) + '" alt="' + skill + ' Badge" height="50" width="50">&nbsp;\n'
 
     # Cool Features Section
-    github_username = request.form.get('github_features_username')
     
     # Github Status
     if request.form.get('gh_status_check') == 'true':
-        link = 'https://github-readme-stats.vercel.app/api?username='+ github_username
-        
-        theme = request.form.get('gh_status_theme')
-        link += '&theme=' + theme
-
-        if request.form.get('gh_status_show_icons') == 'show':
-            link += '&show_icons=true'
-        
-        if request.form.get('gh_status_count_private_contribs') == 'cont':
-            link += '&count_private=true'
-        
-        hide = request.form.getlist('gh_status_hide')
-        if len(hide) > 0:
-            link += '&hide=' + hide[0]
-            for i in range(1, len(hide)):
-                link += ',' + hide[i]
-        
-        markdown += '![GitHub stats](' + link + ')\n'
+        markdown += '![GitHub stats](' + str(request.form.get('gh_status_url')) + ')\n'
 
     # Top Languages Card
-    if request.form.get('gh_top_languages_check') == 'true':
-        link = 'https://github-readme-stats.vercel.app/api/top-langs/?username='+ github_username
-        
-        link += '&theme=' + request.form.get('top_langs_theme')
-
-        if request.form.get('top_langs_layout') == 'compact':
-            link += '&layout=compact'
-
-        link += '&langs_count=' + request.form.get('top_langs_count')
-        
-        markdown += '![Top Languages](' + link + ')\n'
+    if request.form.get('gh_top_languages_check') == 'true':        
+        markdown += '![Top Languages](' + str(request.form.get('top_languages_url')) + ')\n'
 
     # Profile Views
     if request.form.get('gh_views_check') == 'true':
-        link = 'https://komarev.com/ghpvc/?username=' + github_username
-
-        link += '&color=' + request.form.get('gh_views_color')
-
-        link += '&style=' + request.form.get('gh_views_style')
-
-        label = request.form.get('gh_views_label')
-        label = label.replace(' ', '+')
-        link += '&label=' + label
-
-        markdown += '![Profile Views](' + link + ')\n'
+        markdown += '![Profile Views](' + str(request.form.get('profile_views_url')) + ')\n'
 
     # Streak Stats
     if request.form.get('gh_streak_stats_check') == 'true':
-        link = 'https://github-readme-streak-stats.herokuapp.com/?user=' + github_username
-
-        link += '&theme=' + request.form.get('streak_stats_theme')
-
-        markdown += '![Streak Stats](' + link + ')\n'
+        markdown += '![Streak Stats](' + str(request.form.get('streak_stats_url')) + ')\n'
 
     print(markdown)
     return markdown
-
-
-@app.route('/teste')
-def teste():
-    return render_template('teste.html')
