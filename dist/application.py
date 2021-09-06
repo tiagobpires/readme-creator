@@ -56,63 +56,35 @@ def submit():
         markdown += '### ' + subtitle + '\n'
 
     # More About You Section
-    about_you_keys = request.form.getlist('more_about_you_key')
-    about_you_values = request.form.getlist('more_about_you_value')
-    about_you = {}
-    for i in range(0, len(about_you_values)):
-        if about_you_values[i] != '':
-            about_you[about_you_keys[i]] = about_you_values[i]
-    
-    if len(about_you) != 0:
-        markdown += '## About me\n'
-        for key, value in about_you.items():
-            markdown += key + ' ' + value + '\n\n'
+    prefix = request.form.getlist('more_about_you_prefix')
+    info = request.form.getlist('more_about_you_input')
+    title = False
+
+    for i in range(len(info)):
+        if info[i] != '':
+            if title == False:
+                markdown += '## About me\n'
+                title = True
+
+            markdown += prefix[i] + ' ' + info[i] + '\n\n'
 
     # Social Medias Section
-    social_badges = db.execute("SELECT * FROM social_medias")
+    username = request.form.getlist('social_media_input')
+    name = request.form.getlist('social_media_name')
+    link = db.execute('SELECT badge, link FROM social_medias')
+    title = False
 
-    markdown += '## Contact me:\n'
+    for i in range(len(username)):
+        if username[i] != '':
+            if title == False:
+                markdown += '## Contact me:\n'
+                title = True
 
-    gmail = request.form.get('gmail')
-    if gmail != '':
-        markdown += '[![Gmail Badge](' + social_badges[0]['link'] + ')](mailto:' + gmail + ')&nbsp;\n' 
-        
-    github = request.form.get('github username')
-    if github != '':
-        markdown += '[![Github Badge](' + social_badges[2]['link'] + ')](https://www.github.com/' + github + ')&nbsp;\n'
-
-    twitch = request.form.get('twich')
-    if twitch != '':
-        markdown += '[![Twitch Badge](' + social_badges[4]['link'] + ')](https://www.twitch.tv/' + twitch + ')&nbsp;\n'
-
-    linkedin = request.form.get('linkedin')
-    if linkedin != '':
-        markdown += '[![Linkedin Badge](' + social_badges[6]['link'] + ')](https://www.linkedin.com/in/' + linkedin + ')&nbsp;\n'
-
-    instagram = request.form.get('instagram')
-    if instagram != '':
-        markdown += '[![Instagram Badge](' + social_badges[8]['link'] + ')](https://www.instagram.com/' + instagram + ')&nbsp;\n'
-
-    devto = request.form.get('dev.to')
-    if devto != '':
-        markdown += '[![Dev.to Badge](' + social_badges[1]['link'] + ')](https://dev.to/' + devto + ')&nbsp;\n'
-
-    tiktok = request.form.get('tiktok')
-    if tiktok != '':
-        markdown += '[![Tiktok Badge](' + social_badges[3]['link'] + ')](https://www.tiktok.com/' + tiktok + ')&nbsp;\n'
-
-    medium = request.form.get('medium')
-    if medium != '':
-        markdown += '[![Medium Badge](' + social_badges[5]['link'] + ')](https://' + medium + '.medium.com/)&nbsp;\n'
-
-    twitter = request.form.get('twitter')
-    if twitter != '':
-        markdown += '[![Twitter Badge](' + social_badges[7]['link'] + ')](https://twitter.com/' + twitch + ')&nbsp;\n'
-
-    youtube = request.form.get('youtube')
-    if youtube != '':
-        markdown += '[![Youtube Badge](' + social_badges[9]['link'] + ')](https://www.youtube.com/channel/' + youtube + ')&nbsp;\n'
+            markdown += '[![' + str(name[i]).capitalize() + ' Badge]'
+            markdown += '(' + str(link[i]['badge']) + ')]'
+            markdown += '(' + str(link[i]['link']).replace('username', str(username[i])) + ')&nbsp;\n'
     
+
     # Skills Section
     skill_name = request.form.getlist('skill_name')
     
@@ -122,7 +94,7 @@ def submit():
             markdown += '<img src="' + request.form.get(skill) + '" alt="' + skill + ' Badge" height="50" width="50">&nbsp;\n'
 
     # Cool Features Section
-    
+
     # Github Status
     if request.form.get('gh_status_check') == 'true':
         markdown += '![GitHub stats](' + str(request.form.get('gh_status_url')) + ')\n'

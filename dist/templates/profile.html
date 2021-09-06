@@ -33,11 +33,11 @@
 
             {% for about_you in more_about_you %}
                 <div class="col-md-3 mb-2">
-                    <input name="more_about_you_key" type="text" class="form-control  border-top-0 border-start-0 border-end-0 about_you_prefix" value="{{ about_you['prefix'] }}">
+                    <input name="more_about_you_prefix" type="text" class="form-control  border-top-0 border-start-0 border-end-0 about_you_prefix" value="{{ about_you['prefix'] }}">
                 </div>
 
                 <div class="col-md-9 mb-2">
-                    <input name="more_about_you_value" type="text" class="form-control" placeholder="{{ about_you['place_holder'] }}">
+                    <input name="more_about_you_input" type="text" class="form-control" placeholder="{{ about_you['place_holder'] }}">
                 </div>
             {% endfor %}
         </fieldset>
@@ -49,9 +49,10 @@
             {% for social in social_medias %}
                 <div class="d-flex col-md-6 justify-content-start my-1">
                     <div class="divSocialBadges d-flex justify-content-end">
-                        <img src="{{ social['link'] }}" class="socialbadges mx-2">
+                        <img src="{{ social['badge'] }}" class="socialbadges mx-2">
                     </div>
-                    <input name="{{ social['name'] }}" type="text" id="{{ social['name'] }}" class="form-control w-50" placeholder="{{ social['name'] }}">
+                    <input name="social_media_input" type="text" class="form-control w-50" placeholder="{{ social['name']|title }} username">
+                    <input name="social_media_name" class="visually-hidden"  value="{{ social['name'] }}" readonly>
                 </div>
             {% endfor %}
         </fieldset>
