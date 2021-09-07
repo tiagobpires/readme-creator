@@ -17,7 +17,7 @@
             <fieldset class="border p-2 mb-2 row gx-2">
                 <legend class="legend w-auto mb-0">Greet</legend>
                 <div class="col-md-3 mb-2">
-                    <input type="text" class="form-control" name="title" value="👋 Hello World, I'm">
+                    <input type="text" class="form-control" name="title" value="👋 Hello World">
                 </div>
 
                 <div class="col-md-9 mb-2">
@@ -51,9 +51,9 @@
                 {% for social in social_medias %}
                     <div class="d-flex col-md-6 justify-content-start my-1">
                         <div class="divSocialBadges d-flex justify-content-end">
-                            <img src="{{ social['badge'] }}" class="socialbadges mx-2">
+                            <img src="{{ social['badge'] }}" class="socialbadges my-auto mx-2">
                         </div>
-                        <input name="social_media_input" type="text" id="{{ social['name'] }}" class="form-control w-50" placeholder="{{ social['name']|title }} username">
+                        <input name="social_media_input" type="text" id="{{ social['name'] }}" class="form-control w-50" placeholder="{{ social['name'] }} username">
                         <input name="social_media_name" class="visually-hidden"  value="{{ social['name'] }}" readonly>
                     </div>
                 {% endfor %}
@@ -250,12 +250,12 @@
             <fieldset class="border p-2 mb-2 row gx-2 d-flex justify-content-center">
                 <legend class="legend w-auto mb-0">Your Skills</legend>
                 <div id="skillsdiv" class="row">
-                    {% for skill in skills %}
-                        <div class="form-check my-4 col-6 col-md-4 col-xl-3 d-flex justify-content-center">
-                            <input name="skill_name" class="form-check-input" type="checkbox" value="{{ skill['name'] }}" id="{{ skill['name'] }}">
-                            <input name="{{ skill['name'] }}" class="visually-hidden" value="{{ skill['link'] }}">
-                            <label for="{{ skill['name'] }}">
-                                <img src="{{ skill['link'] }}" class="skillsImage ms-4">
+                    {% for key, value in skills.items() %}
+                        <div class="form-check my-4 col-6 col-md-4 col-xl-3">
+                            <input name="skill_name" class="form-check-input ms-xl-2" type="checkbox" value="{{ key }}" id="{{ key }}">
+                            <input name="{{ key }}" class="visually-hidden" value="{{ value }}">
+                            <label for="{{ key }}">
+                                <img src="{{ value }}" class="skillsImage ms-xl-4">
                             </label>
                         </div>
                     {% endfor %}
@@ -282,7 +282,7 @@
             <div class="tab-pane fade show active" id="markdown-content" role="tabpanel" aria-labelledby="markdown-tab">
                 <textarea type="text" class="form-control p-3" id="markdown-input" value="" spellcheck="false" style="height: 500px !important;"></textarea>
             </div>
-            <div class="tab-pane fade p-3" id="preview-content" role="tabpanel" aria-labelledby="preview-tab">
+            <div class="tab-pane fade p-3 bg-dark text-white" id="preview-content" role="tabpanel" aria-labelledby="preview-tab">
                 
             </div>
           </div>

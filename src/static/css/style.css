@@ -8,8 +8,7 @@ textarea:focus, input:focus, select:focus, button:focus {
 } 
 
 .socialbadges {
-    width: auto !important;
-    height: 36px !important;
+    height: 30px !important;
 }
 
 .divSocialBadges {
@@ -17,8 +16,7 @@ textarea:focus, input:focus, select:focus, button:focus {
 }
 
 .skillsImage {
-    height: 70px !important;
-    width: 70px !important;
+    height: 30px !important;
 }
 
 .features_settings_input {
@@ -26,7 +24,7 @@ textarea:focus, input:focus, select:focus, button:focus {
 }
 
 .about_you_prefix {
-    width: 280px !important;
+    max-width: 230px !important;
 }
 
 /* Cool features Section */
@@ -45,3 +43,9 @@ textarea:focus, input:focus, select:focus, button:focus {
 
 
 /* Preview Markdown */
+#preview-content > h1, h2, h3, h4, h5 {
+    margin-top: 24px !important;
+    margin-bottom: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+}

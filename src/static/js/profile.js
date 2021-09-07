@@ -8,7 +8,7 @@ function displaySettings(id) {
     }
 }
 
-social_github = document.getElementById("github")
+social_github = document.getElementById("GitHub")
 social_github.addEventListener("keyup", function() {
     document.getElementById("ghusername").value = social_github.value;
 });
