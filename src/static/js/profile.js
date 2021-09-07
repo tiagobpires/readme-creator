@@ -8,7 +8,7 @@ function displaySettings(id) {
     }
 }
 
-social_github = document.getElementById("github username")
+social_github = document.getElementById("github")
 social_github.addEventListener("keyup", function() {
     document.getElementById("ghusername").value = social_github.value;
 });
@@ -75,3 +75,43 @@ function streak_stats_preview(){
 
     document.getElementById("streak_stats_preview").innerHTML = '<input name="streak_stats_url" class="visually-hidden" value="' + imageUrl + '"> <img src="' + imageUrl + '" alt="Streak Stats" id="streak_stats_img" class="w-100" >';
 }
+
+// POST to make markdown
+// this is the id of the form
+$("#profile_form").submit(function(e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    
+    $.ajax({
+           type: "POST",
+           url: "/profile",
+           data: form.serialize(), // serializes the form's elements.
+           success: function(data) 
+           {
+               document.getElementById("profile_form_div").style="display: none;";
+               document.getElementById("preview").style="display: block;";
+               document.getElementById("markdown-input").value = data;
+           }
+    });
+});
+
+$("#preview-tab").click(function() {
+    markdown = document.getElementById("markdown-input").value;
+    $.ajax({
+           type: "POST",
+           url: "/preview",
+           data : {'data': markdown},
+           success: function(data) 
+           {
+               document.getElementById("preview-content").innerHTML = data;
+           }
+    });
+});
+
+$("#back_to_form").click(function() {
+    document.getElementById("profile_form_div").style="display: block;";
+    document.getElementById("preview").style="display: none;";
+});
+
