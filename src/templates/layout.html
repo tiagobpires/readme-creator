@@ -13,11 +13,19 @@
 
         <title>Readme Creator: {% block title %}{% endblock %}</title>
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100" style="background-color: #f3ede23d">
 
         <main class="container py-3 px-2 px-md-5">
             {% block main %}{% endblock %}
         </main>
+
+        <footer class="mt-auto">
+            <div class="bg-dark text-white d-flex justify-content-center footer">
+                <p class="fs-6 my-auto">
+                    Made with ❤️ by <a href="https://github.com/tiagobpires" class="link_footer"  target="_blank"> tiagobpires</a>
+                </p>
+            </div>
+        </footer>
 
 
         <!-- Jquery -->
@@ -26,4 +34,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
         {% block script %}{% endblock %}
     </body>
+    
 </html>

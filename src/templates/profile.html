@@ -6,7 +6,7 @@
 
 {% block main %}
 
-    <h1 class="mb-3">Profile Readme</h1>
+    <h1 class="mb-3 mt-2">Profile Readme</h1>
 
     <div id="profile_form_div">
         <p class="lead fs-4">
@@ -42,27 +42,27 @@
 
                 {% for about_you in more_about_you %}
                     <div class="col-md-3 mb-2">
-                        <input name="about_you_prefix" type="text" class="form-control  border-top-0 border-start-0 border-end-0 about_you_prefix" value="{{ about_you['prefix'] }}">
+                        <input name="about_you_prefix" type="text" class="form-control" value="{{ about_you['prefix'] }}">
                     </div>
 
-                    <div class="col-md-9 mb-2">
+                    <div class="col-md-9 mb-md-2 mb-3">
                         <input name="about_you_input" type="text" class="form-control" placeholder="{{ about_you['place_holder'] }}">
                     </div>
                 {% endfor %}
 
                 <div class="col-md-3 mb-2">
-                    <input name="about_you_link_prefix" type="text" class="form-control  border-top-0 border-start-0 border-end-0 about_you_prefix" value="📫 Reach me">
+                    <input name="about_you_link_prefix" type="text" class="form-control" value="📫 Reach me">
                 </div>
 
-                <div class="col-md-9 mb-2">
+                <div class="col-md-9 mb-2 mb-md-2 mb-3">
                     <input name="about_you_link_input" type="text" class="form-control" placeholder="tiagobarrospires@gmail.com">
                 </div>
 
                 <div class="col-md-3 mb-2">
-                    <input name="about_you_link_prefix" type="text" class="form-control  border-top-0 border-start-0 border-end-0 about_you_prefix" value="🖥️ See my portfolio at">
+                    <input name="about_you_link_prefix" type="text" class="form-control" value="🖥️ See my portfolio at">
                 </div>
 
-                <div class="col-md-9 mb-2">
+                <div class="col-md-9 mb-2 mb-md-2 mb-3">
                     <input name="about_you_link_input" type="text" class="form-control" placeholder="www.portfolio.com">
                 </div>
             </fieldset>
@@ -285,7 +285,7 @@
                 </div>
             </fieldset>
 
-            <div class="d-flex justify-content-center mt-3">
+            <div class="d-flex justify-content-center mt-4 mb-2">
                 <button type="submit" id="create_readme" class="btn btn-light border border-2">Create Readme</button>
             </div>
             
@@ -317,7 +317,7 @@
             <div class="tab-pane fade show active" id="markdown-content" role="tabpanel" aria-labelledby="markdown-tab">
                 <textarea type="text" class="form-control px-4 py-2 mt-2" id="markdown-input" value="" spellcheck="false" style="height: 500px !important;"></textarea>
             </div>
-            <div class="tab-pane fade p-3 mt-2 bg-dark text-white" id="preview-content" role="tabpanel" aria-labelledby="preview-tab">
+            <div class="tab-pane fade py-3 px-5 mt-2 bg-dark text-white rounded-3" id="preview-content" role="tabpanel" aria-labelledby="preview-tab">
                 
             </div>
             <div class="d-flex justify-content-center mt-3">

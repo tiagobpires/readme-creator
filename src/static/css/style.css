@@ -1,3 +1,4 @@
+/* perfil */
 .legend { 
     float: none; 
     padding: inherit; 
@@ -21,10 +22,6 @@ textarea:focus, input:focus, select:focus, button:focus {
 
 .features_settings_input {
     width: 120px !important;
-}
-
-.about_you_prefix {
-    max-width: 230px !important;
 }
 
 /* Cool features Section */
@@ -74,4 +71,17 @@ textarea:focus, input:focus, select:focus, button:focus {
 
 .card_index:hover {
     transform: scale(1.03);
+}
+
+/* footer */
+.link_footer, .link_footer:visited, .link_footer:focus, .link_footer:active {
+    /* text-decoration: none;  */
+    color: inherit; 
+} 
+.link_footer:hover {
+    opacity: 0.8;
+}
+
+.footer {
+    height: 50px;
 }

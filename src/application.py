@@ -132,6 +132,11 @@ def profile():
     return render_template('profile.html', more_about_you=more_about_you, social_medias=social_medias, skills=skills, themes=features_themes, colors=features_color)
 
 
+@app.route('/project')
+def project():
+    return render_template('project.html')
+
+
 @app.route('/preview', methods=['POST'])
 def submit():
     markdown_data = request.form['data']
