@@ -115,3 +115,22 @@ $("#back_to_form").click(function() {
     document.getElementById("preview").style="display: none;";
 });
 
+// Copy readme
+$("#copy_readme").click(function(){
+    readme = document.getElementById("markdown-input").value;
+    button = document.getElementById("copy_readme");
+
+    navigator.clipboard.writeText(readme).then(function() {
+        button.innerHTML = 'Copied!';
+        setTimeout(function() {
+            button.innerHTML = 'Copy to Clipboard'
+        }, 3000);
+    }, function(err) {
+        button.innerHTML = 'Sorry, something went wrong';
+        setTimeout(function() {
+            button.innerHTML = 'Copy to Clipboard'
+        }, 3000);
+    });
+})
+
+
