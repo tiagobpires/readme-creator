@@ -59,3 +59,8 @@ textarea:focus, input:focus, select:focus, button:focus {
     margin-top: 0 !important;
     margin-bottom: 16px !important;
 }
+
+/* Create readme button */
+#create_readme {
+    font-size: 18px !important;
+}

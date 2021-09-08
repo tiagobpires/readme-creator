@@ -9,7 +9,7 @@
     <h1 class="mb-3">Profile Readme</h1>
 
     <div id="profile_form_div">
-        <p class="lead fs-4" id="hello">
+        <p class="lead fs-4">
             Fill in the informations you want to put on your readme
         </p>
 
@@ -88,7 +88,7 @@
 
                 <div class="row">        
                     <label for="ghusername" class="col-8 fw-bold px-0 ms-auto">Please fill in your github username for correctly work of the features</label>        
-                    <input name="github_features_username" type="text" class="form-control col-4 me-auto" id="ghusername" placeholder="GitHub username" style="height: 33px; width: 20%;">
+                    <input name="github_features_username" type="text" class="form-control col-4 me-auto" id="ghusername" placeholder="GitHub username" style="height: 33px; width: 30%;">
                 </div>
 
                 <div class="row align-items-center mx-2">
@@ -284,8 +284,11 @@
                     {% endfor %}
                 </div>
             </fieldset>
+
+            <div class="d-flex justify-content-center mt-3">
+                <button type="submit" id="create_readme" class="btn btn-light border border-2">Create Readme</button>
+            </div>
             
-            <input type="submit">
         </form>
     </div>
 
@@ -303,9 +306,9 @@
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="markdown-content" role="tabpanel" aria-labelledby="markdown-tab">
-                <textarea type="text" class="form-control px-4 py-2" id="markdown-input" value="" spellcheck="false" style="height: 500px !important;"></textarea>
+                <textarea type="text" class="form-control px-4 py-2 mt-2" id="markdown-input" value="" spellcheck="false" style="height: 500px !important;"></textarea>
             </div>
-            <div class="tab-pane fade p-3 bg-dark text-white" id="preview-content" role="tabpanel" aria-labelledby="preview-tab">
+            <div class="tab-pane fade p-3 mt-2 bg-dark text-white" id="preview-content" role="tabpanel" aria-labelledby="preview-tab">
                 
             </div>
           </div>
