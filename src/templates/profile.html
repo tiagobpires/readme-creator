@@ -42,13 +42,29 @@
 
                 {% for about_you in more_about_you %}
                     <div class="col-md-3 mb-2">
-                        <input name="more_about_you_prefix" type="text" class="form-control  border-top-0 border-start-0 border-end-0 about_you_prefix" value="{{ about_you['prefix'] }}">
+                        <input name="about_you_prefix" type="text" class="form-control  border-top-0 border-start-0 border-end-0 about_you_prefix" value="{{ about_you['prefix'] }}">
                     </div>
 
                     <div class="col-md-9 mb-2">
-                        <input name="more_about_you_input" type="text" class="form-control" placeholder="{{ about_you['place_holder'] }}">
+                        <input name="about_you_input" type="text" class="form-control" placeholder="{{ about_you['place_holder'] }}">
                     </div>
                 {% endfor %}
+
+                <div class="col-md-3 mb-2">
+                    <input name="about_you_link_prefix" type="text" class="form-control  border-top-0 border-start-0 border-end-0 about_you_prefix" value="📫 Reach me">
+                </div>
+
+                <div class="col-md-9 mb-2">
+                    <input name="about_you_link_input" type="text" class="form-control" placeholder="tiagobarrospires@gmail.com">
+                </div>
+
+                <div class="col-md-3 mb-2">
+                    <input name="about_you_link_prefix" type="text" class="form-control  border-top-0 border-start-0 border-end-0 about_you_prefix" value="🖥️ See my portfolio at">
+                </div>
+
+                <div class="col-md-9 mb-2">
+                    <input name="about_you_link_input" type="text" class="form-control" placeholder="www.portfolio.com">
+                </div>
             </fieldset>
 
 

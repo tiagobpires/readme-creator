@@ -47,8 +47,8 @@ def profile():
             markdown_str += '![Profile Views](' + str(request.form.get('profile_views_url')) + ')\n\n'
 
         # More About You Section
-        prefix = request.form.getlist('more_about_you_prefix')
-        info = request.form.getlist('more_about_you_input')
+        prefix = request.form.getlist('about_you_prefix')
+        info = request.form.getlist('about_you_input')
         title = False
 
         for i in range(len(info)):
@@ -61,6 +61,28 @@ def profile():
                     title = True
                 else:
                     markdown_str += '<br/>' + pre + ' ' + info[i] + '\n'
+        
+        # Inputs with link
+        prefix = request.form.getlist('about_you_link_prefix')
+        info = request.form.getlist('about_you_link_input')
+        for i in range(len(info)):
+            link = str(info[i])
+            if link != '':
+                emoji = prefix[i][:1]
+                pre = emoji + '&nbsp;' + prefix[i][2:]
+    
+                if link.find('www') != -1:
+                    pre_link = 'https://'
+                else:
+                    pre_link = 'mailto:'
+                
+                if title == False:
+                    markdown_str += '### About me\n'
+                    markdown_str += pre + ' [' + link + '](' + pre_link + link + ')\n'
+                    title = True
+                else:
+                    markdown_str += '<br/>' + pre + ' [' + link + '](' + pre_link + link + ')\n'
+
         markdown_str += '\n'
 
         # Skills Section
