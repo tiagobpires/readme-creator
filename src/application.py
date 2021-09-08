@@ -28,25 +28,23 @@ def profile():
 
         for i in range(len(username)):
             if username[i] != '':
-                markdown_str += '[![' + str(name[i]) + ' Badge]'
-                
                 link_badge = str(link[i]['badge']).replace('username', str(username[i]))
                 link_badge = link_badge.replace(str(name[i]), str(username[i]))
-                markdown_str += '(' + link_badge + ')]'
 
-                markdown_str += '(' + str(link[i]['link']).replace('username', str(username[i])) + ')&nbsp;\n'
+                markdown_str += '<img src="' + link_badge + '" alt="'+ str(name[i]) + ' Badge" height="25">&nbsp;\n'
+
         markdown_str += '\n'
 
         # Subtitle
         subtitle = request.form.get('subtitle')
         if subtitle != '':
-            title = request.form.get('title')
-            markdown_str += '### '+ title + '\n'
+            greet = request.form.get('greet')
+            markdown_str += '### '+ str(greet) + '\n'
             markdown_str += subtitle + '\n\n'
         
         # Profile Views
         if request.form.get('gh_views_check') == 'true':
-            markdown_str += '![Profile Views](' + str(request.form.get('profile_views_url')) + ')\n'
+            markdown_str += '![Profile Views](' + str(request.form.get('profile_views_url')) + ')\n\n'
 
         # More About You Section
         prefix = request.form.getlist('more_about_you_prefix')
@@ -58,11 +56,12 @@ def profile():
                 emoji = prefix[i][:1]
                 pre = emoji + '&nbsp;' + prefix[i][2:]
                 if title == False:
-                    markdown_str += '### About me\n\n'
+                    markdown_str += '### About me\n'
                     markdown_str += pre + ' ' + info[i] + '\n'
                     title = True
                 else:
                     markdown_str += '<br/>' + pre + ' ' + info[i] + '\n'
+        markdown_str += '\n'
 
         # Skills Section
         skill_name = request.form.getlist('skill_name')
@@ -70,26 +69,26 @@ def profile():
         if len(skill_name) > 0:
             markdown_str += '### Tech Stack\n'
             for skill in skill_name:
-                markdown_str += '<img src="' + request.form.get(skill) + '" alt="' + skill + ' Badge" height="30">&nbsp;\n'
+                markdown_str += '<img src="' + request.form.get(skill) + '" alt="' + skill + ' Badge" height="25">&nbsp;\n'
             markdown_str += '\n'
 
         # Cool Features Section
         features = ''
         # Github Status
         if request.form.get('gh_status_check') == 'true':
-            features += '![GitHub stats](' + str(request.form.get('gh_status_url')) + ')\n'
+            features += '<img height="180em" src="' + str(request.form.get('gh_status_url')) + '">\n'
 
         # Top Languages Card
         if request.form.get('gh_top_languages_check') == 'true':        
-            features += '![Top Languages](' + str(request.form.get('top_languages_url')) + ')\n'
+            features += '<img height="180em" src="' + str(request.form.get('top_languages_url')) + '">\n'
 
         # Streak Stats
         if request.form.get('gh_streak_stats_check') == 'true':
-            features += '![Streak Stats](' + str(request.form.get('streak_stats_url')) + ')\n'
+            features += '<img height="180em" src="' + str(request.form.get('streak_stats_url')) +  '">\n'
 
         if features != '':
             markdown_str += '### GitHub Analytics\n'
-            markdown_str += features
+            markdown_str += '<div>\n' + features + '</div>'
 
         return markdown_str
     

@@ -15,18 +15,25 @@
 
         <form id="profile_form" autocomplete="off" spellcheck="false">
             <fieldset class="border p-2 mb-2 row gx-2">
-                <legend class="legend w-auto mb-0">Greet</legend>
-                <div class="col-md-3 mb-2">
-                    <input type="text" class="form-control" name="title" value="👋 Hello World">
-                </div>
+                <legend class="legend w-auto mb-0">Greet</legend>        
 
-                <div class="col-md-9 mb-2">
-                    <input type="text" class="form-control" name="name" placeholder="Your name">
+                <div class="row mx-0 px-0">
+                    <label class="col-md-2 col-form-label">Your Name:</label>
+                    <div class="col-md-10 mb-2">
+                        <input type="text" class="form-control col-sm-9" name="name" placeholder="Tiago Barros Pires">
+                    </div>
                 </div>
                 
-                <div class="">
-                    <label for="subtitlegreet" class="form-label mt-1">Subtitle</label>
-                    <input type="text" class="form-control" name="subtitle" placeholder="A computer science student from Brazil">
+                <div class="row mx-0 px-0">
+                    <label class="col-md-2 col-form-label">Greet Message:</label>
+                    <div class="col-md-10 mb-2">
+                        <input type="text" class="form-control col-sm-9 my-1" name="greet" value="👋 Hello World">
+                    </div>
+
+                    <label class="col-md-2 col-form-label">A bit about you:</label>
+                    <div class="col-md-10 mb-2">
+                        <textarea type="text" class="form-control col-sm-9 " name="subtitle" placeholder="I'm a brazilian computer science student at UECE"></textarea>
+                    </div>
                 </div>
             </fieldset>
 
@@ -280,7 +287,7 @@
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="markdown-content" role="tabpanel" aria-labelledby="markdown-tab">
-                <textarea type="text" class="form-control p-3" id="markdown-input" value="" spellcheck="false" style="height: 500px !important;"></textarea>
+                <textarea type="text" class="form-control px-4 py-2" id="markdown-input" value="" spellcheck="false" style="height: 500px !important;"></textarea>
             </div>
             <div class="tab-pane fade p-3 bg-dark text-white" id="preview-content" role="tabpanel" aria-labelledby="preview-tab">
                 

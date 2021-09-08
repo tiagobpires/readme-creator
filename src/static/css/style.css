@@ -49,3 +49,13 @@ textarea:focus, input:focus, select:focus, button:focus {
     font-weight: 600 !important;
     line-height: 1.25 !important;
 }
+
+#preview-content > div > img {
+    max-width: 100% !important;
+    margin-bottom: 5px !important; 
+}
+
+#preivew-content > p {
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+}
