@@ -64,3 +64,14 @@ textarea:focus, input:focus, select:focus, button:focus {
 #create_readme {
     font-size: 18px !important;
 }
+
+/* index */
+
+.card_index, .card_index:hover, .card_index:visited, .card_index:focus, .card_index:active{
+    text-decoration: none; 
+    color: inherit; 
+} 
+
+.card_index:hover {
+    transform: scale(1.03);
+}

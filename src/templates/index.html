@@ -6,17 +6,38 @@
 
 {% block main %}
 
-    <h2>Hello, World!</h2>
+    <div class="text-center">
+        <h2>Readme Creator</h2>
 
-    Create readme for your profile and projects easily
-    <ul>
-        <li>
-            <a href="/profile">For your Profile</a>
-        </li>
-        <li>
-            <a href="/project">For your Project</a>
-        </li>
-    </ul>
+        <p class="lead mb-3 mb-md-5 fs-4">Create readme for your profile and projects easily</p>
+        
+        <div class=" row mx-auto my-3">
+            <div class="col-md-6 d-flex justify-content-md-end justify-content-center pe-md-4 my-auto mb-2" style="height: 100%;">
+                <a href="/profile" class="card_index">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/static/images/profile_readme_example.png" class="card-img-top" alt="profile readme example">
+                        <div class="card-body pt-0">
+                            <h5 class="card-title mt-3">Profile</h5>
+                            <p class="card-text">Create a awesome Readme for your profile</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 d-flex justify-content-md-start justify-content-center ps-md-4 my-auto" style="height: 100%;">
+                <a href="/project" class="card_index">
+                    <div class="card" id="project_card" style="width: 18rem;">
+                        <!-- <img src="" class="card-img-top" alt="Under Construction"> -->
+                        <div class="card-body pt-0">
+                            <h5 class="card-title mt-3">🚧 Project 🚧</h5>
+                            <p class="card-text">Create a awesome Readme for your projects</p>
+                            <p class="card-text text-danger">Avaible as soon as possible</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
     
 
 {% endblock %}

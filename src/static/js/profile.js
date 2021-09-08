@@ -90,9 +90,10 @@ $("#profile_form").submit(function(e) {
            data: form.serialize(), // serializes the form's elements.
            success: function(data) 
            {
-               document.getElementById("profile_form_div").style="display: none;";
-               document.getElementById("preview").style="display: block;";
-               document.getElementById("markdown-input").value = data;
+                window.scrollTo(0, 0);
+                document.getElementById("profile_form_div").style="display: none;";
+                document.getElementById("preview").style="display: block;";
+                document.getElementById("markdown-input").value = data;
            }
     });
 });
@@ -113,6 +114,7 @@ $("#preview-tab").click(function() {
 $("#back_to_form").click(function() {
     document.getElementById("profile_form_div").style="display: block;";
     document.getElementById("preview").style="display: none;";
+    window.scrollTo(0, 0);
 });
 
 // Copy readme

@@ -18,7 +18,7 @@ def profile():
         # Title/Name
         name = request.form.get('name')
         if name != '':
-            markdown_str += '## ' + name + '\n'
+            markdown_str += '# ' + name + '\n'
 
         # Social Medias
         username = request.form.getlist('social_media_input')
@@ -39,7 +39,7 @@ def profile():
         subtitle = request.form.get('subtitle')
         if subtitle != '':
             greet = request.form.get('greet')
-            markdown_str += '### '+ str(greet) + '\n'
+            markdown_str += '## '+ str(greet) + '\n'
             markdown_str += subtitle + '\n\n'
         
         # Profile Views
@@ -77,7 +77,7 @@ def profile():
                     pre_link = 'mailto:'
                 
                 if title == False:
-                    markdown_str += '### About me\n'
+                    markdown_str += '## About me\n'
                     markdown_str += pre + ' [' + link + '](' + pre_link + link + ')\n'
                     title = True
                 else:
@@ -89,7 +89,7 @@ def profile():
         skill_name = request.form.getlist('skill_name')
         
         if len(skill_name) > 0:
-            markdown_str += '### Tech Stack\n'
+            markdown_str += '## Tech Stack\n'
             for skill in skill_name:
                 markdown_str += '<img src="' + request.form.get(skill) + '" alt="' + skill + ' Badge" height="25">&nbsp;\n'
             markdown_str += '\n'
@@ -109,7 +109,7 @@ def profile():
             features += '<img height="180em" src="' + str(request.form.get('streak_stats_url')) +  '">\n'
 
         if features != '':
-            markdown_str += '### GitHub Analytics\n'
+            markdown_str += '## GitHub Analytics\n'
             markdown_str += '<div>\n' + features + '</div>'
 
         return markdown_str
@@ -136,3 +136,8 @@ def profile():
 def submit():
     markdown_data = request.form['data']
     return markdown.markdown(markdown_data)
+
+
+@app.route('/goahead')
+def goahead():
+    return render_template('goahead.html')
