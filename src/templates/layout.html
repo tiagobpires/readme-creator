@@ -11,11 +11,15 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
+        <!-- Ícone utilizando emoji -->
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+
+
         <title>Readme Creator: {% block title %}{% endblock %}</title>
     </head>
-    <body class="d-flex flex-column min-vh-100" style="background-color: #f3ede23d">
-
-        <main class="container py-3 px-2 px-md-5">
+    <body class="d-flex flex-column min-vh-100">
+        <!-- class="container py-3 px-2 px-md-5" -->
+        <main>
             {% block main %}{% endblock %}
         </main>
 

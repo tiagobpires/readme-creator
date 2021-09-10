@@ -7,12 +7,43 @@
 {% block main %}
 
     <div class="text-center">
-        <h2>Readme Creator</h2>
+        <div class="container py-3 px-2 px-md-5">
+            <h2 class="mb-0">📜 Readme Creator</h2>
 
-        <p class="lead mb-3 mb-md-5 fs-4">Create outstanding readmes for your profile and projects easily</p>
+            <p class="lead my-5 fs-4">Create outstanding readmes for your profile and projects easily</p>
+
+            <a href="#readme_options">
+                <button type="button" class="btn btn-success mb-4 btn-lg">Get Started</button>
+            </a>
+        </div>
+
+        <div>
+            <svg width="500" height="25" viewBox="0 0 144.54 17.34"preserveAspectRatio="none" >
+                <path d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0" fill="#f2f6fc" />
+            </svg>
+            
+            <div class="pt-3 pt-md-5 pb-3 px-2 px-md-5" style="background-color: #f2f6fc;">
+                
+                <div class="container lead text-center fs-5 d-inline-block">
+                    <p>
+                        Github is the plataform where most open-source projects are shared. It's a place where you can make your portfolio, attract the attention of recruiters, conect with people and contribute with open source projects.
+                    </p>
+                    <p>
+                        When sharing a project with the world 🌎, a problem that might occur is that the user will need to take time to understand the code or what's your project about.
+                        There's where README files enter. With that, you can make your project more understandable or, in your profile, make a good presentation about you and make easily to connect with people.
+                    </p>
+                    <p>
+                        Make a good readme can be a tough task, but no worry, we are here to help you, just select one option, complete the form and add to your repository. 😄
+                    </p>
+                </div>                
+            </div>
+            <svg width="500" height="50" viewBox="0 0 500 80" preserveAspectRatio="none">
+                <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z" fill="#f2f6fc" />
+            </svg>
+        </div>
         
-        <div class=" row mx-auto my-3">
-            <div class="col-md-6 d-flex justify-content-md-end justify-content-center pe-md-4 my-auto mb-3" style="height: 100%;">
+        <div class="row mx-auto my-4" id="readme_options">
+            <div class="col-md-6 d-flex justify-content-md-end justify-content-center pe-md-4 mb-3 mb-md-3" style="height: 100%;">
                 <a href="/profile" class="card_index">
                     <div class="card" style="width: 18rem;">
                         <div class="card-header fs-4">
@@ -31,7 +62,7 @@
                 </a>
             </div>
 
-            <div class="col-md-6 d-flex justify-content-md-start justify-content-center ps-md-4 my-auto" style="height: 100%;">
+            <div class="col-md-6 d-flex justify-content-md-start justify-content-center ps-md-4" style="height: 100%;">
                 <a href="/project" class="card_index">
                     <div class="card" id="project_card" style="width: 18rem;">
                         <div class="card-header fs-4">

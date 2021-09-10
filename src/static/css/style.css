@@ -1,3 +1,17 @@
+/* All */
+
+svg {
+    width: 100%;
+}
+
+a, a:visited, a:focus, a:active {
+    color: inherit; 
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
 /* perfil */
 .legend { 
     float: none; 
@@ -75,12 +89,12 @@ textarea:focus, input:focus, select:focus, button:focus {
 
 /* footer */
 .link_footer, .link_footer:visited, .link_footer:focus, .link_footer:active {
-    /* text-decoration: none;  */
     color: inherit; 
 } 
 .link_footer:hover {
     opacity: 0.8;
 }
+
 
 .footer {
     height: 50px;
