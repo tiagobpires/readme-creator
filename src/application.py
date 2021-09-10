@@ -143,6 +143,6 @@ def submit():
     return markdown.markdown(markdown_data)
 
 
-@app.route('/goahead')
+@app.route('/links&help')
 def goahead():
-    return render_template('goahead.html')
+    return render_template('links&help.html')
