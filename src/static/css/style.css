@@ -52,6 +52,10 @@ textarea:focus, input:focus, select:focus, button:focus {
     max-width: 150px !important;
 }
 
+#searchbar_skills {
+    max-width: 400px;
+}
+
 
 /* Preview Markdown */
 #preview-content > h1, h2, h3, h4, h5 {

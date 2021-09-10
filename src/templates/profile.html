@@ -17,20 +17,20 @@
             <fieldset class="border p-2 mb-2 row gx-2">
                 <legend class="legend w-auto mb-0">Greet</legend>        
 
-                <div class="row mx-0 px-0">
-                    <label class="col-md-2 col-form-label">Your Name:</label>
+                <div class="row mx-0 px-0 mt-1">
+                    <label class="col-md-2 col-form-label ps-0">Your Name:</label>
                     <div class="col-md-10 mb-2">
                         <input type="text" class="form-control col-sm-9" name="name" placeholder="Tiago Barros Pires">
                     </div>
                 </div>
                 
-                <div class="row mx-0 px-0">
-                    <label class="col-md-2 col-form-label">Greet Message:</label>
+                <div class="row mx-0 px-0 mt-1">
+                    <label class="col-md-2 col-form-label ps-0">Greet Message:</label>
                     <div class="col-md-10 mb-2">
                         <input type="text" class="form-control col-sm-9 my-1" name="greet" value="👋 Hello World">
                     </div>
 
-                    <label class="col-md-2 col-form-label">A bit about you:</label>
+                    <label class="col-md-2 col-form-label ps-0">A bit about you:</label>
                     <div class="col-md-10 mb-2">
                         <textarea type="text" class="form-control col-sm-9 " name="subtitle" placeholder="I'm a brazilian computer science student at UECE"></textarea>
                     </div>
@@ -86,9 +86,9 @@
             <fieldset class="border p-2 mb-2 row gx-2">
                 <legend class="legend w-auto mb-0">Cool features</legend>          
 
-                <div class="row">        
-                    <label for="ghusername" class="col-8 fw-bold px-0 ms-auto">Please fill in your github username for correctly work of the features</label>        
-                    <input name="github_features_username" type="text" class="form-control col-4 me-auto" id="ghusername" placeholder="GitHub username" style="height: 33px; width: 30%;">
+                <div class="row mb-md-2">        
+                    <label for="ghusername" class="col-12 col-md-6 fw-bold px-0 ms-auto ps-2">Please fill in your github username for correctly work of the features</label>        
+                    <input name="github_features_username" type="text" class="form-control col-12 col-md-6 mx-auto my-2 my-md-0" id="ghusername" placeholder="GitHub username" onkeyup="gh_status_preview();top_languages_preview();profile_views_preview();streak_stats_preview();" style="height: 33px; width: 40%;">
                 </div>
 
                 <div class="row align-items-center mx-2">
@@ -101,7 +101,7 @@
 
                         <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_status_settings'); gh_status_preview()">⚙️</button>
 
-                        <div id="gh_status_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
+                        <div id="gh_status_settings" class="bg-success p-3" style="min-height: 373px; display: none; --bs-bg-opacity: .04;">
                             <div class="form-check my-1">
                                 <input class="form-check-input" type="checkbox" value="show" id="show_icons_stats" checked>
                                 <label class="form-check-label" for="show_icons_stats">
@@ -116,9 +116,9 @@
                                 </label>
                             </div>
 
-                            <div class="form-check my-1 ps-0">
-                                <label>Themes:</label>
-                                <select class="form-select py-1 ps-2 features_settings_input" id="gh_status_theme">
+                            <div class="row mx-0 px-0 mt-1">
+                                <label class="col-4 col-md-2 col-form-label ps-0">Themes:</label>
+                                <select class="form-select col-8 col-md-10 mb-2 features_settings_input" id="gh_status_theme">
                                     <option value="default" selected>Default</option>
                                     {% for theme in themes %}
                                         <option value="{{ theme }}">{{ theme|title }}</option>
@@ -164,7 +164,7 @@
 
                         <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_top_languages_settings');top_languages_preview();">⚙️</button>
 
-                        <div id="gh_top_languages_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
+                        <div id="gh_top_languages_settings" class="bg-success p-3" style="min-height: 373px; display: none; --bs-bg-opacity: .04;">
                             <div class="form-check my-1">
                                 <input class="form-check-input" type="checkbox" value="compact" id="tl_layout" checked>
                                 <label class="form-check-label" for="tl_layout">
@@ -172,9 +172,9 @@
                                 </label>
                             </div>
 
-                            <div class="form-check my-1 ps-0">
-                                <label>Themes:</label>
-                                <select class="form-select py-1 ps-2 features_settings_input" id="top_langs_theme">
+                            <div class="row mx-0 px-0 mt-1">
+                                <label class="col-4 col-md-2 col-form-label ps-0">Themes:</label>
+                                <select class="form-select col-8 col-md-10 mb-2 features_settings_input" id="top_langs_theme">
                                     <option value="default" selected>Default</option>
                                     {% for theme in themes %}
                                         <option value="{{ theme }}">{{ theme|title }}</option>
@@ -182,9 +182,9 @@
                                 </select>
                             </div>
 
-                            <div class="form-check my-1 ps-0">
-                                <label>Number of Languages showed:</label>
-                                <select class="form-select py-1 ps-2 features_settings_input" id="top_langs_count">
+                            <div class="row mx-0 px-0 mt-1">
+                                <label  class="col-12 col-md-6 col-form-label ps-0">Number of Languages showed:</label>
+                                <select class="form-select col-12 col-md-6 mb-2 features_settings_input" id="top_langs_count">
                                     {% for n in range(1,11) %}
                                         {% if n == 5 %}
                                             <option value="5" selected>5</option>
@@ -194,6 +194,7 @@
                                     {% endfor %}
                                 </select>
                             </div>
+
                             <div id="top_languages_preview" class="d-flex justify-content-center mt-2">
                                 <input name="top_languages_url" class="visually-hidden" value="">
                                 <img src="" alt="top languages" id="top_languages_img" class="w-100">
@@ -211,10 +212,10 @@
                         </label>
 
                         <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('gh_views_settings');profile_views_preview();">⚙️</button>
-                        <div id="gh_views_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
-                            <div class="mb-1 ps-0">
-                                <label>Color:</label>
-                                <select class="form-select py-1 ps-2 features_settings_input" id="gh_views_color">
+                        <div id="gh_views_settings" class="bg-success p-3" style="min-height: 260px; display: none; --bs-bg-opacity: .04;">
+                            <div class="row mx-0 px-0 mt-1">
+                                <label class="col-4 col-md-2 col-form-label ps-0">Color:</label>
+                                <select class="form-select col-8 col-md-10 mb-2 features_settings_input" id="gh_views_color">
                                     <option value="blue" selected>Blue</option>
                                     <option value="ff69b4">Pink</option>
                                     {% for color in colors %}
@@ -223,21 +224,23 @@
                                 </select>
                             </div>
 
-                            <div class="my-1 ps-0">
-                                <label>Styles:</label>
-                                <select class="form-select py-1 ps-2 features_settings_input" id="gh_views_style">
+                            <div class="row mx-0 px-0 mt-1">
+                                <label class="col-4 col-md-2 col-form-label ps-0">Styles:</label>
+                                <select class="form-select col-8 col-md-10 mb-2 features_settings_input" id="gh_views_style">
                                     <option value="flat" selected>Flat</option>
                                     <option value="flat-square">Flat-square</option>
                                     <option value="plastic">Plastic</option>
                                 </select>
                             </div>
-                            
-                            <label for="gh_views_label">Label</label>
-                            <input type="text" class="form-control py-1 ps-2 features_settings_input" value="Profile Views" id="gh_views_label">
+
+                            <div class="row mx-0 px-0 mt-1">
+                                <label class="col-4 col-md-2 col-form-label ps-0" for="gh_views_label">Label</label>
+                                <input type="text" class="form-control col-8 col-md-10 mb-2 features_settings_input" value="Profile Views" id="gh_views_label">
+                            </div>
                             
                             <div id="profile_views_preview" class="d-flex justify-content-center mt-2">
                                 <input name="profile_views_url" class="visually-hidden" value="">
-                                <img src="" alt="profile views" id="profile_views_img" class="features_preview">
+                                <img src="" alt="profile views" id="profile_views_img" class="features_preview mt-3">
                             </div>
                         </div>
                     </div>
@@ -251,14 +254,16 @@
 
                         <button type="button" class="btn btn-lightettings pt-0 pb-1 px-1" onclick="displaySettings('streak_stats_settings');streak_stats_preview();">⚙️</button>
 
-                        <div id="streak_stats_settings" class="bg-success p-3" style="display: none; --bs-bg-opacity: .04;">
-                            <label>Themes:</label>
-                            <select class="form-select py-1 ps-2 features_settings_input" id="streak_stats_theme">
-                                <option value="default" selected>Default</option>
-                                {% for theme in themes %}
-                                    <option value="{{ theme }}">{{ theme|title }}</option>
-                                {% endfor %}
-                            </select>
+                        <div id="streak_stats_settings" class="bg-success p-3" style="min-height: 260px; display: none; --bs-bg-opacity: .04;">
+                            <div class="row mx-0 px-0 mt-1">
+                                <label class="col-4 col-md-2 col-form-label ps-0">Themes:</label>
+                                <select class="form-select col-8 col-md-10 mb-2 features_settings_input" id="streak_stats_theme">
+                                    <option value="default" selected>Default</option>
+                                    {% for theme in themes %}
+                                        <option value="{{ theme }}">{{ theme|title }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
 
                             <div id="streak_stats_preview" class="d-flex justify-content-center mt-2">
                                 <input name="streak_stats_url" class="visually-hidden" value="">
@@ -272,13 +277,16 @@
             <!-- Skills -->
             <fieldset class="border p-2 mb-2 row gx-2 d-flex justify-content-center">
                 <legend class="legend w-auto mb-0">Your Skills</legend>
+                <div class="d-flex justify-content-center mb-3">
+                    <input class="form-control me-2" type="search" id="searchbar_skills" onkeyup="search_skill()" placeholder="Search skill">
+                </div>
                 <div id="skillsdiv" class="row">
-                    {% for key, value in skills.items() %}
-                        <div class="form-check my-4 col-6 col-md-4 col-xl-3">
-                            <input name="skill_name" class="form-check-input ms-xl-2" type="checkbox" value="{{ key }}" id="{{ key }}">
-                            <input name="{{ key }}" class="visually-hidden" value="{{ value }}">
-                            <label for="{{ key }}">
-                                <img src="{{ value }}" class="skillsImage ms-xl-4">
+                    {% for skill in skills %}
+                        <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                            <input name="skill_name" class="form-check-input ms-xl-2 skill_name" type="checkbox" value="{{ skill['name'] }}" id="{{ skill['name'] }}">
+                            <input name="{{ skill['name'] }}" class="visually-hidden" value="{{ skill['link'] }}">
+                            <label for="{{ skill['name'] }}">
+                                <img src="{{ skill['link'] }}" class="skillsImage ms-xl-4">
                             </label>
                         </div>
                     {% endfor %}

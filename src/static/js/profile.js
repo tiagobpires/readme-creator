@@ -136,3 +136,20 @@ $("#copy_readme").click(function(){
 })
 
 
+// Search Skills
+function search_skill() {
+    let input = document.getElementById('searchbar_skills').value
+    input = input.toLowerCase();
+    let names = document.getElementsByClassName('skill_name');
+    let div = document.getElementsByClassName('skill_div');
+      
+    for (i = 0; i < names.length; i++) { 
+        if (!names[i].value.toLowerCase().includes(input)) {
+            div[i].style.display="none";
+        }
+        else {
+            div[i].style.display="block";                 
+        }
+    }
+}
+
