@@ -36,8 +36,16 @@ svg {
     opacity: 0.8;
 }
 
+.star-repo {
+    text-decoration: none;
+}
+
 .footer {
-    height: 50px;
+    height: 55px;
+}
+
+.p-footer {
+    width: 250px !important;
 }
 
 
