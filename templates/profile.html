@@ -13,7 +13,10 @@
             Fill in the informations you want to put on your readme
         </p>
 
-        <form id="profile_form" autocomplete="off" spellcheck="false">
+        <form id="profile_form" spellcheck="false">
+            <!-- Prevent implicit submission of the form -->
+            <button type="submit" disabled style="display: none" aria-hidden="true"></button> 
+
             <fieldset class="border p-2 mb-2 row gx-2">
                 <legend class="legend w-auto mb-0">Greet</legend>        
 
@@ -278,7 +281,7 @@
             <fieldset class="border p-2 mb-2 row gx-2 d-flex justify-content-center">
                 <legend class="legend w-auto mb-0">Your Skills</legend>
                 <div class="d-flex justify-content-center mb-3">
-                    <input class="form-control me-2" type="search" id="searchbar_skills" onkeyup="search_skill()" placeholder="Search skill">
+                    <input class="form-control me-2" type="text" id="searchbar_skills" onkeyup="search_skill()"  placeholder="&#128269;  Search Skill">
                 </div>
                 <div id="skillsdiv" class="row">
                     {% for skill in skills %}
@@ -303,11 +306,11 @@
     <div id="preview" style="display: none;">
         <p class="lead fs-5 mb-1">
             Feel free to customize even more! See the 
-            <a href="/links&help" target="_blank">Links & Help section</a> 
+            <a href="/links&help" class="link" target="_blank">Links & Help section</a> 
             for some tips and links to resource documentation used.
         </p>
         <p class="lead fs-5">
-            If you don't know how to make a repository for your readme profile, see <a href="/links&help#how_make_readme_profile" target="_blank">this section</a>. Once you're done, click in "copy to clipboard" and paste into your repository
+            If you don't know how to make a repository for your readme profile, see <a href="/links&help#how_make_readme_profile" class="link" target="_blank">this section</a>. Once you're done, click in "copy to clipboard" and paste into your repository
         </p>
         
         <ul class="nav nav-tabs" id="myTab" role="tablist">

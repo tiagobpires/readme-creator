@@ -18,7 +18,33 @@
         <title>Readme Creator: {% block title %}{% endblock %}</title>
     </head>
     <body class="d-flex flex-column min-vh-100">
-        <!-- class="container py-3 px-2 px-md-5" -->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-1 mb-md-3">
+            <div class="container-fluid position-relative">
+                <a class="navbar-brand d-block d-sm-none d-xl-block navbar-title" href="#">📜 Readme Creator
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse fs-5" id="navbarNav">
+                    <ul class="navbar-nav mx-auto my-2 my-sm-0">
+                        <li class="nav-item mx-4 mx-lg-5">
+                            <a class="nav-link text-white" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item mx-4 mx-lg-5">
+                            <a class="nav-link text-white" href="/profile">Profile</a>
+                        </li>
+                        <li class="nav-item mx-4 mx-lg-5">
+                            <a class="nav-link text-white" href="/project">Project</a>
+                        </li>
+                        <li class="nav-item mx-4 mx-lg-5">
+                            <a class="nav-link text-white" href="/links&help">Links&Help</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </nav>
+
         <main>
             {% block main %}{% endblock %}
         </main>
@@ -26,7 +52,7 @@
         <footer class="mt-auto">
             <div class="bg-dark text-white d-flex justify-content-center footer">
                 <p class="fs-6 my-auto">
-                    Made with ❤️ by <a href="https://github.com/tiagobpires" class="link_footer"  target="_blank"> tiagobpires</a>
+                    Made with &#10084; by <a href="https://github.com/tiagobpires" class="link_footer"  target="_blank"> tiagobpires</a>
                 </p>
             </div>
         </footer>

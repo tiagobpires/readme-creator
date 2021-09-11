@@ -8,11 +8,11 @@ function displaySettings(id) {
     }
 }
 
+// Fill github username of cool features when type on social medias
 social_github = document.getElementById("GitHub")
 social_github.addEventListener("keyup", function() {
     document.getElementById("ghusername").value = social_github.value;
 });
-
 
 // Preview for Github Status Feature
 function gh_status_preview(){
@@ -34,7 +34,6 @@ function gh_status_preview(){
 
     document.getElementById("gh_status_preview").innerHTML ='<input name="gh_status_url" class="visually-hidden" value="' + imageUrl + '"> <img src="' + imageUrl + '" alt="github status" id="gh_status_img" class="w-100">';
 }
-
 
 // Preview for Top Languages Feature
 function top_languages_preview(){
@@ -76,8 +75,24 @@ function streak_stats_preview(){
     document.getElementById("streak_stats_preview").innerHTML = '<input name="streak_stats_url" class="visually-hidden" value="' + imageUrl + '"> <img src="' + imageUrl + '" alt="Streak Stats" id="streak_stats_img" class="w-100" >';
 }
 
-// POST to make markdown
-// this is the id of the form
+// Search Skills
+function search_skill() {
+    let input = document.getElementById('searchbar_skills').value
+    input = input.toLowerCase();
+    let names = document.getElementsByClassName('skill_name');
+    let div = document.getElementsByClassName('skill_div');
+      
+    for (i = 0; i < names.length; i++) { 
+        if (!names[i].value.toLowerCase().includes(input)) {
+            div[i].style.display="none";
+        }
+        else {
+            div[i].style.display="block";                 
+        }
+    }
+}
+
+// POST to make markdown output
 $("#profile_form").submit(function(e) {
 
     e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -98,6 +113,7 @@ $("#profile_form").submit(function(e) {
     });
 });
 
+// Transform preview data (markdown) in html 
 $("#preview-tab").click(function() {
     markdown = document.getElementById("markdown-input").value;
     $.ajax({
@@ -111,6 +127,7 @@ $("#preview-tab").click(function() {
     });
 });
 
+// Set display of the form
 $("#back_to_form").click(function() {
     document.getElementById("profile_form_div").style="display: block;";
     document.getElementById("preview").style="display: none;";
@@ -134,22 +151,3 @@ $("#copy_readme").click(function(){
         }, 3000);
     });
 })
-
-
-// Search Skills
-function search_skill() {
-    let input = document.getElementById('searchbar_skills').value
-    input = input.toLowerCase();
-    let names = document.getElementsByClassName('skill_name');
-    let div = document.getElementsByClassName('skill_div');
-      
-    for (i = 0; i < names.length; i++) { 
-        if (!names[i].value.toLowerCase().includes(input)) {
-            div[i].style.display="none";
-        }
-        else {
-            div[i].style.display="block";                 
-        }
-    }
-}
-

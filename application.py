@@ -4,7 +4,8 @@ from flask import Flask, render_template, request
 import markdown
 app = Flask(__name__)
 
-db = SQL(os.getenv("DATABASE_URL"))
+# db = SQL(os.getenv("DATABASE_URL"))
+db = SQL("sqlite:///database.db")
 
 @app.route('/')
 def index():
@@ -116,6 +117,7 @@ def profile():
         return markdown_str
     
     # Get Method
+
     features_themes = [
         'dracula', 'dark', 'radical', 'merko', 'gruvbox', 'tokyonight', 'onedark', 'cobalt', 'synthwave', 'highcontrast' 
     ]
@@ -124,10 +126,9 @@ def profile():
         'brightgreen', 'green', 'yellow', 'yellowgreen', 'orange', 'red', 'grey', 'lightgrey', 'blueviolet'
     ]
 
+    # Get information from database
     more_about_you = db.execute("SELECT * FROM about_you")
-    
     social_medias = db.execute("SELECT * FROM social_medias")
-    
     skills = db.execute("SELECT * FROM skills")
 
     return render_template('profile.html', more_about_you=more_about_you, social_medias=social_medias, skills=skills, themes=features_themes, colors=features_color)
@@ -140,10 +141,11 @@ def project():
 
 @app.route('/preview', methods=['POST'])
 def submit():
+    # Transform markdown data in html 
     markdown_data = request.form['data']
     return markdown.markdown(markdown_data)
 
 
 @app.route('/links&help')
-def goahead():
+def linkshelp():
     return render_template('links&help.html')

@@ -1,18 +1,47 @@
-/* All */
-
+/* ------All -------------- */
 svg {
     width: 100%;
 }
 
-a, a:visited, a:focus, a:active {
-    color: inherit; 
+.link, .link:visited, .link:focus, .link:active {
+    text-decoration: underline;
+    color: #000000 !important; 
 }
 
-a:hover {
+.link:hover {
+    opacity: 0.5;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar-title {
+        position: static !important;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .navbar-title {
+        position: absolute !important;
+    }
+}
+
+.nav-item:hover {
+    opacity: 0.7;
+}
+
+/* footer */
+.link_footer, .link_footer:visited, .link_footer:focus, .link_footer:active {
+    color: inherit; 
+} 
+.link_footer:hover {
     opacity: 0.8;
 }
 
-/* perfil */
+.footer {
+    height: 50px;
+}
+
+
+/* -----perfil ----------- */
 .legend { 
     float: none; 
     padding: inherit; 
@@ -56,6 +85,10 @@ textarea:focus, input:focus, select:focus, button:focus {
     max-width: 400px;
 }
 
+/* Create readme button */
+#create_readme {
+    font-size: 18px !important;
+}
 
 /* Preview Markdown */
 #preview-content > h1, h2, h3, h4, h5 {
@@ -75,12 +108,8 @@ textarea:focus, input:focus, select:focus, button:focus {
     margin-bottom: 16px !important;
 }
 
-/* Create readme button */
-#create_readme {
-    font-size: 18px !important;
-}
 
-/* index */
+/* ------- index --------------*/
 
 .card_index, .card_index:hover, .card_index:visited, .card_index:focus, .card_index:active{
     text-decoration: none; 
@@ -89,17 +118,4 @@ textarea:focus, input:focus, select:focus, button:focus {
 
 .card_index:hover {
     transform: scale(1.03);
-}
-
-/* footer */
-.link_footer, .link_footer:visited, .link_footer:focus, .link_footer:active {
-    color: inherit; 
-} 
-.link_footer:hover {
-    opacity: 0.8;
-}
-
-
-.footer {
-    height: 50px;
 }
