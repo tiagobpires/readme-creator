@@ -3,23 +3,88 @@
 </h1>
 
 <h3 align="center"> 
-	🚧  In Construction 🔨🚧
+	🚀 Site to create readme for github profile or projects in a easy way
 </h3>
 
-Site to create readme for github profile or projects in a easy way
+<p align="center">
+	<img src="https://img.shields.io/github/license/tiagobpires/readme-creator"/>
+	<img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg"/>
+	<img src="https://img.shields.io/github/repo-size/tiagobpires/readme-creator"/>
+	<img src="https://img.shields.io/github/last-commit/tiagobpires/readme-creator"/>
+</p>
 
-### Technologies ​​
+<h4 align="center"> 
+	Status: In progress
+</h4>
+
+<p align="center">
+ <a href="#about">About</a> •
+ <a href="#features">Features</a> •
+ <a href="#tech-stack">Tech Stack</a> • 
+ <a href="#installation">Installation</a> • 
+ <a href="#usage">Usage</a> • 
+ <a href="#contact">Contact</a> • 
+ <a href="#license">License</a>
+</p>
+
+## About
+
+Readme creator is a website to quickly create READMEs for github profiles and projects. 
+
+You just need to fill in the form with the information you want to share based on the options, click on "Create README" and copy to your repository!
+
+And that's it, you have a outstanding readme :D
+
+## Features
+
+- [x] Profile Readme
+- [ ] Project Readme
+- [ ] Download file directly from site 
+
+## Tech Stack
 
 The following tools are being used in the construction of the project:
 
-<div style="display: inline_block">
+<img src="https://img.shields.io/badge/Css3-05122A?style=flat&logo=css3" alt="css3 Badge" height="25">&nbsp;
+<img src="https://img.shields.io/badge/Flask-05122A?style=flat&logo=flask" alt="flask Badge" height="25">&nbsp;
+<img src="https://img.shields.io/badge/Html5-05122A?style=flat&logo=html5" alt="html5 Badge" height="25">&nbsp;
+<img src="https://img.shields.io/badge/Javascript-05122A?style=flat&logo=javascript" alt="javascript Badge" height="25">&nbsp;
+<img src="https://img.shields.io/badge/Python-05122A?style=flat&logo=python" alt="python Badge" height="25">&nbsp;
 
-<img align="center" alt="Python" height="40" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+## Installation
 
-<img align="center" alt="Flask" height="40" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg">
+Before you begin, you will need to have the following tools installed on your machine:
 
-<img align="center" alt="HTML" height="40" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+- [Git](https://git-scm.com/)
+- [Python](https://www.python.org/)
 
-<img align="center" alt="CSS" height="40" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
+To install Readme Creator, follow these steps:
 
-</div>
+```sh
+# Clone this repository
+$ git clone https://github.com/tiagobpires/readme-creator.git
+
+# Create a virtual environment (optional but recommended):
+python -m venv venv
+
+# Activating the virtual environment:
+source venv/bin/activate
+
+# Install requirements:
+pip install -r requirements.txt
+```
+
+## Usage
+
+To use Readme Creator, run the python file:
+
+```sh
+# Running
+python application.py
+```
+
+Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to see the app running.
+
+## Contact
+
+If you want to contact me, you can reach me at tiagobarrospires@gmail.com or in [https://www.linkedin.com/in/tiagobpires/](https://www.linkedin.com/in/tiagobpires/)
