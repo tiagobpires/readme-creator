@@ -90,26 +90,17 @@ def profile_post():
     prefix = request.form.getlist("about_you_prefix")
     info = request.form.getlist("about_you_input")
 
-    # inputs with links
+    # Inputs with links
     prefix_links = request.form.getlist("about_you_link_prefix")
     info_links = request.form.getlist("about_you_link_input")
 
     markdown_str += display_about_you(prefix, info, prefix_links, info_links)
 
     # Skills Section
-    skill_name = request.form.getlist("skill_name")
+    skills_name = request.form.getlist("skill_name")
 
-    if len(skill_name) > 0:
-        markdown_str += "## Tech Stack\n"
-        for skill in skill_name:
-            markdown_str += (
-                '<img src="'
-                + request.form.get(skill)
-                + '" alt="'
-                + skill
-                + ' Badge" height="25">&nbsp;\n'
-            )
-        markdown_str += "\n"
+    if len(skills_name):
+        markdown_str += display_skills(skills_name, request.form)
 
     # Cool Features Section
     features = ""
