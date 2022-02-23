@@ -70,13 +70,14 @@ def profile_post():
 
     # Social Medias
     user_info = request.form.getlist("social_media_input")
+
     markdown_str += display_socials(user_info)
 
     # Subtitle
     subtitle = request.form.get("subtitle")
     if subtitle:
         greet = request.form.get("greet")
-        markdown_str += "## " + str(greet) + "\n"
+        markdown_str += "## " + greet + "\n"
         markdown_str += subtitle + "\n\n"
 
     # Profile Views
@@ -88,43 +89,12 @@ def profile_post():
     # More About You Section
     prefix = request.form.getlist("about_you_prefix")
     info = request.form.getlist("about_you_input")
-    title = False
 
-    for i in range(len(info)):
-        if info[i]:
-            emoji = prefix[i][:1]
-            pre = emoji + "&nbsp;" + prefix[i][2:]
-            if title == False:
-                markdown_str += "### About me\n"
-                markdown_str += pre + " **" + info[i] + "**\n"
-                title = True
-            else:
-                markdown_str += "<br/>" + pre + " **" + info[i] + "**\n"
+    # inputs with links
+    prefix_links = request.form.getlist("about_you_link_prefix")
+    info_links = request.form.getlist("about_you_link_input")
 
-    # Inputs with link
-    prefix = request.form.getlist("about_you_link_prefix")
-    info = request.form.getlist("about_you_link_input")
-    for i in range(len(info)):
-        link = str(info[i])
-        if link != "":
-            emoji = prefix[i][:1]
-            pre = emoji + "&nbsp;" + prefix[i][2:]
-
-            if link.find("www") != -1:
-                pre_link = "https://"
-            else:
-                pre_link = "mailto:"
-
-            if title == False:
-                markdown_str += "## About me\n"
-                markdown_str += pre + " [" + link + "](" + pre_link + link + ")\n"
-                title = True
-            else:
-                markdown_str += (
-                    "<br/>" + pre + " [" + link + "](" + pre_link + link + ")\n"
-                )
-
-    markdown_str += "\n"
+    markdown_str += display_about_you(prefix, info, prefix_links, info_links)
 
     # Skills Section
     skill_name = request.form.getlist("skill_name")
