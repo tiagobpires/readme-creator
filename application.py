@@ -83,7 +83,7 @@ def profile_post():
     # Profile Views
     if request.form.get("gh_views_check") == "true":
         markdown_str += (
-            "![Profile Views](" + str(request.form.get("profile_views_url")) + ")\n\n"
+            "![Profile Views](" + request.form.get("profile_views_url") + ")\n\n"
         )
 
     # More About You Section

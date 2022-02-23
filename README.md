@@ -88,3 +88,7 @@ Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to see the app running.
 ## Contact
 
 If you want to contact me, you can reach me at tiagobarrospires@gmail.com or in [https://www.linkedin.com/in/tiagobpires/](https://www.linkedin.com/in/tiagobpires/)
+
+## License
+
+This project is under the license [MIT](./LICENSE).
