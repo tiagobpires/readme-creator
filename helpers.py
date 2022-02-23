@@ -71,3 +71,18 @@ def display_skills(skills_name, form):
         )
 
     return markdown + "\n"
+
+
+def display_features(form):
+    markdown = ""
+
+    features = ["gh_status_", "gh_top_languagens_", "gh_streak_stats_"]
+
+    for feature in features:
+        if form.get(f"{feature}check") == "true":
+            markdown += '<img height="180em" src="' + form.get("{feature}url") + '">\n'
+
+    # Add new section if at least one option was selected
+    return (
+        ("## GitHub Analytics\n" + "<div>\n" + markdown + "</div>") if markdown else ""
+    )

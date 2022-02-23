@@ -103,34 +103,7 @@ def profile_post():
         markdown_str += display_skills(skills_name, request.form)
 
     # Cool Features Section
-    features = ""
-    # Github Status
-    if request.form.get("gh_status_check") == "true":
-        features += (
-            '<img height="180em" src="'
-            + str(request.form.get("gh_status_url"))
-            + '">\n'
-        )
-
-    # Top Languages Card
-    if request.form.get("gh_top_languages_check") == "true":
-        features += (
-            '<img height="180em" src="'
-            + str(request.form.get("top_languages_url"))
-            + '">\n'
-        )
-
-    # Streak Stats
-    if request.form.get("gh_streak_stats_check") == "true":
-        features += (
-            '<img height="180em" src="'
-            + str(request.form.get("streak_stats_url"))
-            + '">\n'
-        )
-
-    if features != "":
-        markdown_str += "## GitHub Analytics\n"
-        markdown_str += "<div>\n" + features + "</div>"
+    markdown_str += display_features(request.form)
 
     return markdown_str
 
