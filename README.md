@@ -63,15 +63,15 @@ To install Readme Creator, follow these steps:
 ```sh
 # Clone this repository
 $ git clone https://github.com/tiagobpires/readme-creator.git
-
+                        
 # Create a virtual environment (optional but recommended):
-python -m venv venv
-
+$ python -m venv venv
+                        
 # Activating the virtual environment:
-source venv/bin/activate
-
+$ source venv/bin/activate
+                        
 # Install requirements:
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ## Usage
@@ -87,7 +87,16 @@ Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to see the app running.
 
 ## Contact
 
-If you want to contact me, you can reach me at tiagobarrospires@gmail.com or in [https://www.linkedin.com/in/tiagobpires/](https://www.linkedin.com/in/tiagobpires/)
+
+<img align="left" src="https://avatars.githubusercontent.com/tiagobpires?size=100">
+
+Made with love by [Tiago Barros](https://github.com/tiagobpires), enter in contact!
+
+<img src="https://img.shields.io/badge/tiagobpires-100000?style=flat&logo=github&logoColor=white" alt="GitHub Badge" height="25">&nbsp;
+<img src="https://img.shields.io/badge/tiagobpires-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn Badge" height="25">&nbsp;
+<img src="https://img.shields.io/badge/tiagobarrospires-D14836?style=flat&logo=gmail&logoColor=white" alt="Gmail Badge" height="25">&nbsp;
+
+<br clear="left"/>
 
 ## License
 

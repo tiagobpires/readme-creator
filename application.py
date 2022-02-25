@@ -61,6 +61,8 @@ def profile_get():
 
 @app.post("/profile")
 def profile_post():
+    # print(request.form)
+
     markdown_str = ""
 
     # Title/Name
@@ -110,7 +112,9 @@ def profile_post():
 
 @app.get("/project")
 def project():
-    return render_template("project.html")
+    skills = db.execute("SELECT * FROM skills")
+
+    return render_template("project.html", skills=skills)
 
 
 @app.post("/preview")

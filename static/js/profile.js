@@ -1,3 +1,32 @@
+// ------------ Form submittion / Markdown --------------
+
+// POST to make markdown output
+$("#form_profile").submit(function (e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+
+    $.ajax({
+        type: "POST",
+        url: "/profile",
+        data: form.serialize(), // serializes the form's elements.
+        success: function (data) {
+            window.scrollTo(0, 0);
+            // Hide form
+            document.getElementById("form_div").style = "display: none;";
+            // Set preview
+            document.getElementById("preview").style = "display: block;";
+            document.getElementById("markdown-input").value = data;
+            // Active markdown input tab
+            // document.getElementById("markdown-tab").className = "nav-link active";
+            // document.getElementById("preview-tab").className = "nav-link";
+        }
+    });
+});
+
+// -------------- Features Section ---------------
+
 // Hide or set display of div Cool Features Settings
 function displaySettings(id) {
     let div = document.getElementById(id);
@@ -47,7 +76,7 @@ function top_languages_preview() {
 
     imageUrl += "&langs_count=" + document.getElementById("top_langs_count").value;
 
-    document.getElementById("top_languages_preview").innerHTML = '<input name="top_languages_url" class="visually-hidden" value="' + imageUrl + '"> <img src="' + imageUrl + '"alt="top languages" id="top_languages_img" class="w-100">';
+    document.getElementById("top_languages_preview").innerHTML = '<input name="gh_top_languages_url" class="visually-hidden" value="' + imageUrl + '"> <img src="' + imageUrl + '"alt="top languages" id="top_languages_img" class="w-100">';
 }
 
 // Preview for Profile Views Feature
@@ -72,80 +101,5 @@ function streak_stats_preview() {
 
     imageUrl += "&theme=" + document.getElementById("streak_stats_theme").value;
 
-    document.getElementById("streak_stats_preview").innerHTML = '<input name="streak_stats_url" class="visually-hidden" value="' + imageUrl + '"> <img src="' + imageUrl + '" alt="Streak Stats" id="streak_stats_img" class="w-100" >';
+    document.getElementById("streak_stats_preview").innerHTML = '<input name="gh_streak_stats_url" class="visually-hidden" value="' + imageUrl + '"> <img src="' + imageUrl + '" alt="Streak Stats" id="streak_stats_img" class="w-100" >';
 }
-
-// Search Skills
-function search_skill() {
-    let input = document.getElementById('searchbar_skills').value
-    input = input.toLowerCase();
-    let names = document.getElementsByClassName('skill_name');
-    let div = document.getElementsByClassName('skill_div');
-
-    for (i = 0; i < names.length; i++) {
-        if (!names[i].value.toLowerCase().includes(input)) {
-            div[i].style.display = "none";
-        }
-        else {
-            div[i].style.display = "block";
-        }
-    }
-}
-
-// POST to make markdown output
-$("#profile_form").submit(function (e) {
-
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-
-    var form = $(this);
-
-    $.ajax({
-        type: "POST",
-        url: "/profile",
-        data: form.serialize(), // serializes the form's elements.
-        success: function (data) {
-            window.scrollTo(0, 0);
-            document.getElementById("profile_form_div").style = "display: none;";
-            document.getElementById("preview").style = "display: block;";
-            document.getElementById("markdown-input").value = data;
-        }
-    });
-});
-
-// Transform preview data (markdown) in html 
-$("#preview-tab").click(function () {
-    markdown = document.getElementById("markdown-input").value;
-    $.ajax({
-        type: "POST",
-        url: "/preview",
-        data: { 'data': markdown },
-        success: function (data) {
-            document.getElementById("preview-content").innerHTML = data;
-        }
-    });
-});
-
-// Set display of the form
-$("#back_to_form").click(function () {
-    document.getElementById("profile_form_div").style = "display: block;";
-    document.getElementById("preview").style = "display: none;";
-    window.scrollTo(0, 0);
-});
-
-// Copy readme
-$("#copy_readme").click(function () {
-    readme = document.getElementById("markdown-input").value;
-    button = document.getElementById("copy_readme");
-
-    navigator.clipboard.writeText(readme).then(function () {
-        button.innerHTML = 'Copied!';
-        setTimeout(function () {
-            button.innerHTML = 'Copy to Clipboard'
-        }, 3000);
-    }, function (err) {
-        button.innerHTML = 'Sorry, something went wrong';
-        setTimeout(function () {
-            button.innerHTML = 'Copy to Clipboard'
-        }, 3000);
-    });
-})

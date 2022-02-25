@@ -141,3 +141,9 @@ textarea:focus, input:focus, select:focus, button:focus {
     transform: scale(1.03);
 }
 
+
+/* ------- project --------------*/
+
+.badgesImage {
+    height: 22px !important;
+}

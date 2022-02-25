@@ -1,18 +1,391 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Welcome
+Welcome
 {% endblock %}
 
 {% block main %}
 <div class="container py-3 px-2 px-md-5">
-    <div class="text-center">
+    <h1 class="mb-3 mt-2">Project Readme</h1>
 
-        <h2>Sorry &#x1F97A;, in construction 🔨</h2>
+    <div id="form_div">
+        <p class="lead fs-4">
+            Fill in the informations you want to put on your readme
+        </p>
 
-        <p class="lead mt-4 fs-4">Will be available as soon as possible</p>
+        <form id="form_project" spellcheck="false">
+            <!-- Prevent implicit submission of the form -->
+            <button type="submit" disabled style="display: none" aria-hidden="true"></button>
 
+            <!-- About Project -->
+            <fieldset class="border p-2 mb-2 row gx-2">
+
+                <legend class="legend w-auto mb-0 pb-0">About your Project</legend>
+                <!-- project name, brief description, long description -->
+
+                <div class="row mx-0 px-0 mt-1">
+                    <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Project Name:</label>
+                    <div class="col-md-10 mb-2">
+                        <input type="text" class="form-control col-sm-9" name="project_name"
+                            placeholder="Readme Creator">
+                    </div>
+
+                    <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Brief Description:</label>
+                    <div class="col-md-10 mb-2">
+                        <input type="text" class="form-control col-sm-9 my-1" name="brief_description"
+                            placeholder="🚀 Site to create readme for github profile or projects in a easy way">
+                    </div>
+
+                    <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Long Description:</label>
+                    <div class="col-md-10 mb-2">
+                        <textarea type="text" class="form-control col-sm-9 " name="long_description" placeholder="Readme creator is a website to quickly create READMEs for github profiles and projects.
+You just need to fill in the form with the information you want to share based on the options, click on Create README and copy to your repository!
+And that's it, you have a outstanding readme 😁" style="height: 110px"></textarea>
+                    </div>
+
+                    <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Status:</label>
+                    <div class="col-md-10 mb-2">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                            name="project_name" placeholder="Readme Creator" style="max-width: 170px;">
+                            <option selected>Open select menu</option>
+                            <option>🚧 In Construction</option>
+                            <option>🚀 Finished</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Badges -->
+            <fieldset class="border p-2 mb-2 row gx-2">
+                <legend class="legend w-auto mb-0 pb-0">Badges</legend>
+
+                <div class="row mb-md-2">
+                    <div class="col-12 col-md-6">
+                        <p class="fw-bold my-0 my-md-3" style="font-size: 14px">
+                            Please fill in your github username and repository name
+                            (exactly as it is on github) for the features to work correctly
+                        </p>
+                    </div>
+
+                    <div class="col-12 col-md-6 row ms-1">
+                        <div class="col-md-12">
+                            <input name="github_username" class="form-control my-1 py-1" id="github_username"
+                                type="text" placeholder="Github username" style="max-width: 250px;"
+                                onkeyup="inputGithubUsername()">
+                        </div>
+                        <div class="col-md-12">
+                            <input name="github_repository" class="form-control my-1 py-1" id="github_repository"
+                                type="text" placeholder="Repository name" style="max-width: 250px;"
+                                onkeyup="changeBadges()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ------ Badges ------ -->
+                <div class="row">
+                    <!-- PRs Welcome -->
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="pr_welcome"
+                            id="pr_welcome">
+                        <label for="pr_welcome">
+                            <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=green"
+                                class="badgesImage ms-xl-4" id="pr_welcome-img">
+                        </label>
+                    </div>
+
+                    <!-- License  -->
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="license"
+                            id="license">
+                        <label for="license">
+                            <img src="https://img.shields.io/github/license/tiagobpires/readme-creator?color=green"
+                                class="badgesImage ms-xl-4" id="license-img">
+                        </label>
+                    </div>
+
+                    <!-- Repo-Size -->
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="repo-size"
+                            id="repo-size">
+                        <label for="repo-size">
+                            <img src="https://img.shields.io/github/repo-size/tiagobpires/readme-creator?color=green"
+                                class="badgesImage ms-xl-4" id="repo-size-img">
+                        </label>
+                    </div>
+
+                    <!-- Last commit -->
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="last-commit"
+                            id="last-commit">
+                        <label for="last-commit">
+                            <img src="https://img.shields.io/github/last-commit/tiagobpires/readme-creator?color=green"
+                                class="badgesImage ms-xl-4" id="last-commit-img">
+                        </label>
+                    </div>
+
+                    <!-- Number Languages -->
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="count" id="count">
+                        <label for="count">
+                            <img src="https://img.shields.io/github/languages/count/tiagobpires/readme-creator?color=green"
+                                class="badgesImage ms-xl-4" id="languages/count-img">
+                        </label>
+                    </div>
+
+
+                    <!-- Number contributors -->
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="contributors"
+                            id="contributors">
+                        <label for="contributors">
+                            <img src="https://img.shields.io/github/contributors/tiagobpires/readme-creator?color=green"
+                                class="badgesImage ms-xl-4" id="contributors-img">
+                        </label>
+                    </div>
+
+                    <!-- Open issues -->
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="issues-raw"
+                            id="issues-raw">
+                        <label for="issues-raw">
+                            <img src="https://img.shields.io/github/issues-raw/tiagobpires/readme-creator?color=green"
+                                class="badgesImage ms-xl-4" id="issues-raw-img">
+                        </label>
+                    </div>
+
+                    <!-- Closed issues -->
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="issues-closed-raw"
+                            id="issues-closed-raw">
+                        <label for="issues-closed-raw">
+                            <img src="https://img.shields.io/github/issues-closed-raw/tiagobpires/readme-creator?color=green"
+                                class="badgesImage ms-xl-4" id="issues-closed-raw-img">
+                        </label>
+                    </div>
+
+                    <!-- Openned issues -->
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="issues-pr-raw"
+                            id="issues-pr-raw">
+                        <label for="issues-pr-raw">
+                            <img src="https://img.shields.io/github/issues-pr-raw/tiagobpires/readme-creator?color=green"
+                                class="badgesImage ms-xl-4" id="issues-pr-raw-img">
+                        </label>
+                    </div>
+
+                    <!-- Closed issues -->
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox"
+                            value="issues-pr-closed-raw" id="issues-pr-closed-raw">
+                        <label for="issues-pr-closed-raw">
+                            <img src="https://img.shields.io/github/issues-pr-closed-raw/tiagobpires/readme-creator?color=green"
+                                class="badgesImage ms-xl-4" id="issues-pr-closed-raw-img">
+                        </label>
+                    </div>
+                </div>
+
+
+            </fieldset>
+
+            <!-- Features -->
+            <fieldset class="border p-2 mb-2 row gx-2">
+
+                <legend class="legend w-auto mb-0 pb-0">Features</legend>
+                <div class="row mx-0 px-0 mt-1">
+                    <div class="col-md-4 col-form-label mb-1 ps-2 py-0 py-md-1">
+                        <p class="mb-2">
+                            1. Put the features you have and want for your project <br>
+                            2. Checks if you already have that feature
+                        </p>
+                    </div>
+
+                    <div class="col-md-7 mb-2 form-check mx-2">
+                        <div id="features">
+                            <div id="div_feature1">
+                                <input name="features-check" class="form-check-input" type="checkbox" value="feature1">
+                                <label class="form-check-label">
+                                    <input name="feature1" type="text" class="form-control py-0 px-1"
+                                        placeholder="Generate project readme">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="button" class="btn btn-outline-primary btn-sm py-0 px-1 mt-2"
+                                onClick="addFeatureInput()">Add
+                                Feature</button>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <!-- Installation -->
+            <fieldset class="border p-2 mb-2 row gx-2">
+                <legend class="legend w-auto mb-0 pb-0">Installation</legend>
+
+                <div class="row mx-0 px-0 mt-1">
+                    <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Block Code Language:
+                    </label>
+                    <div class="col-md-10 mb-2">
+                        <input type="text" class="form-control col-sm-9" name="language_run" value="Bash">
+                    </div>
+
+                    <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Steps to run your project:</label>
+                    <div class="col-md-10 mb-2">
+                        <textarea type="text" class="form-control col-sm-9 " name="steps_run" placeholder="# Clone this repository
+$ git clone https://github.com/tiagobpires/readme-creator.git
+                        
+# Create a virtual environment (optional but recommended):
+$ python -m venv venv
+                        
+# Activating the virtual environment:
+$ source venv/bin/activate
+                        
+# Install requirements:
+$ pip install -r requirements.txt" style="height: 190px"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Usage -->
+            <fieldset class="border p-2 mb-2 row gx-2">
+                <legend class="legend w-auto mb-0 pb-0">Usage</legend>
+                <div class="row mx-0 px-0 mt-1">
+                    <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Block Code Language:
+                    </label>
+                    <div class="col-md-10 mb-2">
+                        <input type="text" class="form-control col-sm-9" name="language_run" value="Bash">
+                    </div>
+
+                    <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Steps to use your project:</label>
+                    <div class="col-md-10 mb-2">
+                        <textarea type="text" class="form-control col-sm-9 " name="steps_use" placeholder="# Running
+python application.py" style="height: 190px"></textarea>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <!-- Contact -->
+            <fieldset class="border p-2 mb-2 row gx-2">
+                <legend class="legend w-auto mb-0 pb-0">Contact</legend>
+
+                <div class="row mx-0 px-0 mt-1 mx-md-3">
+                    <div class="d-flex col-md-6 justify-content-start my-1">
+                        <label class="divSocialBadges d-flex justify-content-end mt-1 mx-2 pe-4">Your
+                            Name:</label>
+                        <input type="text" class="form-control col-sm-9" name="user_name" placeholder="Tiago Barros"
+                            style="max-width: 180px;">
+                    </div>
+
+                    <div class="d-flex col-md-6 justify-content-start my-1">
+                        <label class="divSocialBadges d-flex justify-content-end mt-1 mx-2 pe-4">GitHub
+                            username:</label>
+                        <input type="text" class="form-control col-sm-9" name="github_username_contact"
+                            id="github_username_contact" placeholder="tiagobpires" style="max-width: 180px;">
+                    </div>
+
+                    <!-- Badges -->
+                    <div class="d-flex col-md-6 justify-content-start my-1">
+                        <div class="ms-3 divSocialBadges d-flex justify-content-end">
+                            <img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white"
+                                class="socialbadges my-auto mx-2 pe-4">
+                        </div>
+                        <input name="social_media_input" type="text" id="GitHub" class="form-control"
+                            placeholder="Email" style="max-width: 180px;">
+                    </div>
+
+                    <div class="d-flex col-md-6 justify-content-start my-1">
+                        <div class="ms-3 divSocialBadges d-flex justify-content-end">
+                            <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white"
+                                class="socialbadges my-auto mx-2 pe-4">
+                        </div>
+                        <input name="social_media_input" type="text" id="GitHub" class="form-control"
+                            placeholder="Linkedin username" style="max-width: 180px;">
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <!-- Tech Stack -->
+            <fieldset class="border p-2 mb-2 row gx-2">
+                <legend class="legend w-auto mb-0 pb-0">Tech Stack</legend>
+
+                <div class="d-flex justify-content-center mb-3">
+                    <input class="form-control me-2" type="text" id="searchbar_skills" onkeyup="search_skill()"
+                        placeholder="&#128269;  Search Skill">
+                </div>
+                <div id="skillsdiv" class="row">
+                    {% for skill in skills %}
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                        <input name="skill_name" class="form-check-input ms-xl-2 skill_name" type="checkbox"
+                            value="{{ skill['name'] }}" id="{{ skill['name'] }}">
+                        <input name="{{ skill['name'] }}" class="visually-hidden" value="{{ skill['link'] }}">
+                        <label for="{{ skill['name'] }}">
+                            <img src="{{ skill['link'] }}" class="skillsImage ms-xl-4">
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </fieldset>
+
+            <div class="d-flex justify-content-center mt-4 mb-2">
+                <button type="submit" id="create_readme" class="btn btn-light border border-2">Create Readme</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Readme Preview -->
+    <div id="preview" style="display: none;">
+        <p class="lead fs-5 mb-1">
+            Feel free to customize even more! See the
+            <a href="/links&help" class="link" target="_blank">Links & Help section</a>
+            for some tips and links to resource documentation used.
+        </p>
+        <p class="lead fs-5">
+            If you don't know how to make a repository for your readme profile, see <a
+                href="/links&help#how_make_readme_profile" class="link" target="_blank">this section</a>. Once you're
+            done, click in "copy to clipboard" and paste into your repository
+        </p>
+
+        <!-- Navbar -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="back_to_form" type="button" role="tab" aria-selected="false"> ⇽
+                    Back</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="markdown-tab" data-bs-toggle="tab"
+                    data-bs-target="#markdown-content" type="button" role="tab" aria-controls="markdown-content"
+                    aria-selected="true">Markdown</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="preview-tab" data-bs-toggle="tab" data-bs-target="#preview-content"
+                    type="button" role="tab" aria-controls="preview-content" aria-selected="false">Preview</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="markdown-content" role="tabpanel" aria-labelledby="markdown-tab">
+                <textarea type="text" class="form-control px-4 py-2 mt-2" id="markdown-input" value=""
+                    spellcheck="false" style="height: 500px !important;"></textarea>
+            </div>
+            <div class="tab-pane fade py-3 px-5 mt-2 bg-dark text-white rounded-3" id="preview-content" role="tabpanel"
+                aria-labelledby="preview-tab">
+
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <button type="button" id="copy_readme" class="btn btn-light border border-2">Copy to Clipboard</button>
+            </div>
+        </div>
     </div>
 </div>
 
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/all.js"></script>
+<script src="/static/js/project.js"></script>
 {% endblock %}

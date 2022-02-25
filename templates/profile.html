@@ -8,15 +8,16 @@ Profile
 <div class="container py-3 px-2 px-md-5">
     <h1 class="mb-3 mt-2">Profile Readme</h1>
 
-    <div id="profile_form_div">
+    <div id="form_div">
         <p class="lead fs-4">
             Fill in the informations you want to put on your readme
         </p>
 
-        <form id="profile_form" spellcheck="false">
+        <form id="form_profile" spellcheck="false">
             <!-- Prevent implicit submission of the form -->
             <button type="submit" disabled style="display: none" aria-hidden="true"></button>
 
+            <!-- Greet -->
             <fieldset class="border p-2 mb-2 row gx-2">
                 <legend class="legend w-auto mb-0 pb-0">Greet</legend>
 
@@ -41,6 +42,7 @@ Profile
                 </div>
             </fieldset>
 
+            <!-- More about you -->
             <fieldset class="border p-2 mb-2 row gx-2">
                 <legend class="legend w-auto mb-0">More about you</legend>
 
@@ -74,7 +76,7 @@ Profile
                 </div>
             </fieldset>
 
-
+            <!-- Social Medias -->
             <fieldset class="border p-2 mb-2 row gx-2">
                 <legend class="legend w-auto mb-0">Your Social Medias</legend>
 
@@ -284,8 +286,8 @@ Profile
                     <div class="form-check my-1 col-xl-6 align-self-start" id="streak_stats_div"
                         onchange="streak_stats_preview()">
                         <input name="gh_streak_stats_check" class="form-check-input cool_features_check" type="checkbox"
-                            value="true" id="gh_streak">
-                        <label class="form-check-label" for="gh_streak">
+                            value="true" id="gh_streak_stats_url">
+                        <label class="form-check-label" for="gh_streak_stats_url">
                             Streak Stats
                         </label>
 
@@ -335,6 +337,7 @@ Profile
                 </div>
             </fieldset>
 
+            <!-- Crate Readme Button -->
             <div class="d-flex justify-content-center mt-4 mb-2">
                 <button type="submit" id="create_readme" class="btn btn-light border border-2">Create Readme</button>
             </div>
@@ -342,6 +345,7 @@ Profile
         </form>
     </div>
 
+    <!-- Readme Preview -->
     <div id="preview" style="display: none;">
         <p class="lead fs-5 mb-1">
             Feel free to customize even more! See the
@@ -354,6 +358,7 @@ Profile
             done, click in "copy to clipboard" and paste into your repository
         </p>
 
+        <!-- Navbar -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="back_to_form" type="button" role="tab" aria-selected="false"> ⇽
@@ -369,6 +374,8 @@ Profile
                     type="button" role="tab" aria-controls="preview-content" aria-selected="false">Preview</button>
             </li>
         </ul>
+
+        <!-- Tab Content -->
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="markdown-content" role="tabpanel" aria-labelledby="markdown-tab">
                 <textarea type="text" class="form-control px-4 py-2 mt-2" id="markdown-input" value=""
@@ -388,5 +395,6 @@ Profile
 {% endblock %}
 
 {% block script %}
+<script src="/static/js/all.js"></script>
 <script src="/static/js/profile.js"></script>
 {% endblock %}
