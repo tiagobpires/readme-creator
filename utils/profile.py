@@ -58,22 +58,7 @@ def display_about_you(prefix, info, prefix_links, info_links):
     return markdown + "\n"
 
 
-def display_skills(skills_name, form):
-    markdown = "## Tech Stack\n"
-
-    for skill in skills_name:
-        markdown += (
-            '<img src="'
-            + form.get(skill)
-            + '" alt="'
-            + skill
-            + ' Badge" height="25">&nbsp;\n'
-        )
-
-    return markdown + "\n"
-
-
-def display_features(form):
+def display_features_profile(form):
     markdown = ""
 
     features = ["gh_status_", "gh_top_languages_", "gh_streak_stats_"]

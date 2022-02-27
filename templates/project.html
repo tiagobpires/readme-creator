@@ -20,7 +20,7 @@ Welcome
             <!-- About Project -->
             <fieldset class="border p-2 mb-2 row gx-2">
 
-                <legend class="legend w-auto mb-0 pb-0">About your Project</legend>
+                <legend class="legend w-auto mb-0 pb-0">About Your Project</legend>
                 <!-- project name, brief description, long description -->
 
                 <div class="row mx-0 px-0 mt-1">
@@ -46,9 +46,10 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Status:</label>
                     <div class="col-md-10 mb-2">
                         <select class="form-select form-select-sm" aria-label=".form-select-sm example"
-                            name="project_name" placeholder="Readme Creator" style="max-width: 170px;">
+                            name="project_status" placeholder="Readme Creator" style="max-width: 170px;">
                             <option selected>Open select menu</option>
                             <option>🚧 In Construction</option>
+                            <option>✔️ Available</option>
                             <option>🚀 Finished</option>
                         </select>
                     </div>
@@ -81,11 +82,11 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     </div>
                 </div>
 
-                <!-- ------ Badges ------ -->
+                <!-- Badges -->
                 <div class="row">
                     <!-- PRs Welcome -->
-                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
-                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="pr_welcome"
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3">
+                        <input name="pr_welcome" class="form-check-input ms-xl-2" type="checkbox" value="pr_welcome"
                             id="pr_welcome">
                         <label for="pr_welcome">
                             <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=green"
@@ -94,7 +95,7 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     </div>
 
                     <!-- License  -->
-                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3">
                         <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="license"
                             id="license">
                         <label for="license">
@@ -104,7 +105,7 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     </div>
 
                     <!-- Repo-Size -->
-                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3">
                         <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="repo-size"
                             id="repo-size">
                         <label for="repo-size">
@@ -114,7 +115,7 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     </div>
 
                     <!-- Last commit -->
-                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3">
                         <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="last-commit"
                             id="last-commit">
                         <label for="last-commit">
@@ -124,8 +125,9 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     </div>
 
                     <!-- Number Languages -->
-                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
-                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="count" id="count">
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3">
+                        <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="languages/count"
+                            id="count">
                         <label for="count">
                             <img src="https://img.shields.io/github/languages/count/tiagobpires/readme-creator?color=green"
                                 class="badgesImage ms-xl-4" id="languages/count-img">
@@ -134,7 +136,7 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
 
 
                     <!-- Number contributors -->
-                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3">
                         <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="contributors"
                             id="contributors">
                         <label for="contributors">
@@ -144,7 +146,7 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     </div>
 
                     <!-- Open issues -->
-                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3">
                         <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="issues-raw"
                             id="issues-raw">
                         <label for="issues-raw">
@@ -154,7 +156,7 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     </div>
 
                     <!-- Closed issues -->
-                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3">
                         <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="issues-closed-raw"
                             id="issues-closed-raw">
                         <label for="issues-closed-raw">
@@ -164,7 +166,7 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     </div>
 
                     <!-- Openned issues -->
-                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3">
                         <input name="badges" class="form-check-input ms-xl-2" type="checkbox" value="issues-pr-raw"
                             id="issues-pr-raw">
                         <label for="issues-pr-raw">
@@ -174,7 +176,7 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     </div>
 
                     <!-- Closed issues -->
-                    <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
+                    <div class="form-check my-4 col-6 col-md-4 col-xl-3">
                         <input name="badges" class="form-check-input ms-xl-2" type="checkbox"
                             value="issues-pr-closed-raw" id="issues-pr-closed-raw">
                         <label for="issues-pr-closed-raw">
@@ -201,7 +203,8 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
 
                     <div class="col-md-7 mb-2 form-check mx-2">
                         <div id="features">
-                            <div id="div_feature1">
+                            <input name="list_features" id="list_features" class="visually-hidden" value="1">
+                            <div id="div_feature1" class="mb-2">
                                 <input name="features-check" class="form-check-input" type="checkbox" value="feature1">
                                 <label class="form-check-label">
                                     <input name="feature1" type="text" class="form-control py-0 px-1"
@@ -212,7 +215,7 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
 
                         <div>
                             <button type="button" class="btn btn-outline-primary btn-sm py-0 px-1 mt-2"
-                                onClick="addFeatureInput()">Add
+                                onClick="addFeatureInput();">Add
                                 Feature</button>
                         </div>
                     </div>
@@ -228,12 +231,12 @@ And that's it, you have a outstanding readme 😁" style="height: 110px"></texta
                     <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Block Code Language:
                     </label>
                     <div class="col-md-10 mb-2">
-                        <input type="text" class="form-control col-sm-9" name="language_run" value="Bash">
+                        <input type="text" class="form-control col-sm-9" name="language_install" value="bash">
                     </div>
 
                     <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Steps to run your project:</label>
                     <div class="col-md-10 mb-2">
-                        <textarea type="text" class="form-control col-sm-9 " name="steps_run" placeholder="# Clone this repository
+                        <textarea type="text" class="form-control col-sm-9 " name="steps_install" placeholder="# Clone this repository
 $ git clone https://github.com/tiagobpires/readme-creator.git
                         
 # Create a virtual environment (optional but recommended):
@@ -255,12 +258,12 @@ $ pip install -r requirements.txt" style="height: 190px"></textarea>
                     <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Block Code Language:
                     </label>
                     <div class="col-md-10 mb-2">
-                        <input type="text" class="form-control col-sm-9" name="language_run" value="Bash">
+                        <input type="text" class="form-control col-sm-9" name="language_usage" value="bash">
                     </div>
 
                     <label class="col-md-2 col-form-label mb-1 ps-2 py-0 py-md-1">Steps to use your project:</label>
                     <div class="col-md-10 mb-2">
-                        <textarea type="text" class="form-control col-sm-9 " name="steps_use" placeholder="# Running
+                        <textarea type="text" class="form-control col-sm-9 " name="steps_usage" placeholder="# Running
 python application.py" style="height: 190px"></textarea>
                     </div>
                 </div>
@@ -292,8 +295,8 @@ python application.py" style="height: 190px"></textarea>
                             <img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white"
                                 class="socialbadges my-auto mx-2 pe-4">
                         </div>
-                        <input name="social_media_input" type="text" id="GitHub" class="form-control"
-                            placeholder="Email" style="max-width: 180px;">
+                        <input name="email" type="text" id="email" class="form-control" placeholder="Email"
+                            style="max-width: 180px;">
                     </div>
 
                     <div class="d-flex col-md-6 justify-content-start my-1">
@@ -301,7 +304,7 @@ python application.py" style="height: 190px"></textarea>
                             <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white"
                                 class="socialbadges my-auto mx-2 pe-4">
                         </div>
-                        <input name="social_media_input" type="text" id="GitHub" class="form-control"
+                        <input name="linkedin" type="text" id="linkedin" class="form-control"
                             placeholder="Linkedin username" style="max-width: 180px;">
                     </div>
                 </div>
@@ -309,9 +312,8 @@ python application.py" style="height: 190px"></textarea>
             </fieldset>
 
             <!-- Tech Stack -->
-            <fieldset class="border p-2 mb-2 row gx-2">
-                <legend class="legend w-auto mb-0 pb-0">Tech Stack</legend>
-
+            <fieldset class="border p-2 mb-2 row gx-2 d-flex justify-content-center">
+                <legend class="legend w-auto mb-0">Tech Stack</legend>
                 <div class="d-flex justify-content-center mb-3">
                     <input class="form-control me-2" type="text" id="searchbar_skills" onkeyup="search_skill()"
                         placeholder="&#128269;  Search Skill">

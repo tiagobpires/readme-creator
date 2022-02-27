@@ -23,24 +23,39 @@ $("#form_project").submit(function (e) {
 // ------------ Features --------------
 
 // Add feature input
-let cont_features = 1;
+let contFeatures = 1;
+let featuresIDs = [1];
 
-function addFeatureInput() {
-    cont_features++;
-
-    let new_div = document.createElement('div')
-    new_div.setAttribute("id", `div_feature${cont_features}`)
-    new_div.setAttribute("class", "mt-2")
-
-    new_div.innerHTML = `<input name="features-check" class="form-check-input" type="checkbox" value="feature${cont_features}">`
-    new_div.innerHTML += `<label class="form-check-label"> <input name="feature${cont_features}" type="text" class="form-control py-0 px-1"> </label>`
-    new_div.innerHTML += `<button type="button" class="btn btn-outline-danger btn-sm py-0 px-1 ms-2 mt-1 mb-2" onclick="removeFeatureInput(div_feature${cont_features})">Remove</button>`
-
-    document.getElementById("features").appendChild(new_div);
+function keepTrackFeatures() {
+    document.getElementById("list_features").value = featuresIDs;
 }
 
+function addFeatureInput() {
+    contFeatures++;
+
+    featuresIDs.push(contFeatures);
+
+    let new_div = document.createElement('div')
+    new_div.setAttribute("id", `div_feature${contFeatures}`)
+    new_div.setAttribute("class", "mt-1")
+
+    new_div.innerHTML = `<input name="features-check" class="form-check-input" type="checkbox" value="feature${contFeatures}">`
+    new_div.innerHTML += `<label class="form-check-label"> <input name="feature${contFeatures}" type="text" class="form-control py-0 px-1"> </label>`
+    new_div.innerHTML += `<button type="button" class="btn btn-outline-danger btn-sm py-0 px-1 ms-2 mt-1 mb-2" onClick="removeFeatureInput(${contFeatures})">Remove</button>`
+
+    document.getElementById("features").appendChild(new_div);
+    keepTrackFeatures()
+}
+
+// Remove feature
 function removeFeatureInput(div_id) {
-    div_id.remove()
+    document.getElementById(`div_feature${div_id}`).remove();
+
+    let index = featuresIDs.indexOf(div_id);
+    if (index > -1) {
+        featuresIDs.splice(index, 1);
+    }
+    keepTrackFeatures()
 }
 
 

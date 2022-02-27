@@ -61,6 +61,57 @@ svg {
     width: 250px !important;
 }
 
+/* ------ Preview Markdown -------------- */
+#preview-content {
+    background-color: #0d1117;
+}
+
+#preview-content > p > a {
+    color: #58a6ff !important;
+    text-decoration: none !important;
+}
+
+#preview-content > p > a:hover {
+    text-decoration: underline !important;
+}
+
+#preview-content > h1, h2, h3, h4, h5 {
+    margin-top: 24px !important;
+    margin-bottom: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+}
+
+#preview-content > h2 {
+    font-size: 24px;
+}
+
+#preview-content > h3 {
+    font-size: 20px;
+}
+
+#preview-content > h4 {
+    font-size:16px;
+}
+
+#preview-content > div > img {
+    max-width: 100% !important;
+    margin-bottom: 5px !important; 
+}
+
+#preivew-content > p {
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+}
+
+#preview-content > pre {
+    background-color: #161B22 !important;
+    padding: 16px !important;
+}
+
+#preview-content > p > img {
+    padding-right: 20px !important;
+}
 
 /* -----perfil ----------- */
 .legend { 
@@ -109,24 +160,6 @@ textarea:focus, input:focus, select:focus, button:focus {
 /* Create readme button */
 #create_readme {
     font-size: 18px !important;
-}
-
-/* Preview Markdown */
-#preview-content > h1, h2, h3, h4, h5 {
-    margin-top: 24px !important;
-    margin-bottom: 16px !important;
-    font-weight: 600 !important;
-    line-height: 1.25 !important;
-}
-
-#preview-content > div > img {
-    max-width: 100% !important;
-    margin-bottom: 5px !important; 
-}
-
-#preivew-content > p {
-    margin-top: 0 !important;
-    margin-bottom: 16px !important;
 }
 
 

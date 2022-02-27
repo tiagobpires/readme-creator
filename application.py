@@ -3,8 +3,11 @@ import os
 import markdown
 from cs50 import SQL
 from flask import Flask, render_template, request
+from markdown.extensions.fenced_code import FencedCodeExtension
+from markdown_checklist.extension import ChecklistExtension
 
-from helpers import *
+from utils.profile import *
+from utils.project import *
 
 app = Flask(__name__)
 
@@ -61,8 +64,6 @@ def profile_get():
 
 @app.post("/profile")
 def profile_post():
-    # print(request.form)
-
     markdown_str = ""
 
     # Title/Name
@@ -105,23 +106,94 @@ def profile_post():
         markdown_str += display_skills(skills_name, request.form)
 
     # Cool Features Section
-    markdown_str += display_features(request.form)
+    markdown_str += display_features_profile(request.form)
 
     return markdown_str
 
 
 @app.get("/project")
-def project():
+def project_get():
     skills = db.execute("SELECT * FROM skills")
 
     return render_template("project.html", skills=skills)
+
+
+@app.post("/project")
+def project_post():
+
+    # --- Enter Section ---
+
+    # About project
+    project_name = request.form.get("project_name")
+    brief_description = request.form.get("brief_description")
+    project_status = request.form.get("project_status")
+
+    # Badges
+    pr_welcome = request.form.get("pr_welcome")
+    badges = request.form.getlist("badges")
+    gh_username = request.form.get("github_username")
+    gh_repository = request.form.get("github_repository")
+
+    enter_section = display_enter_section(
+        project_name,
+        brief_description,
+        project_status,
+        pr_welcome,
+        badges,
+        gh_username,
+        gh_repository,
+    )
+
+    # --- About ---
+    long_description = request.form.get("long_description")
+
+    about = display_about(long_description)
+
+    # --- Features ---
+    features = request.form.getlist("features-check")
+
+    features_mk = display_features_project(features, request.form)
+
+    # --- Installation ---
+    install_block = request.form.get("language_install")
+    install_steps = request.form.get("steps_install")
+
+    install = display_install(install_block, install_steps)
+
+    # --- Usage ---
+    usage_block = request.form.get("language_usage")
+    usage_steps = request.form.get("steps_usage")
+
+    usage = display_usage(usage_block, usage_steps)
+
+    # --- Contact ---
+    user_name = request.form.get("user_name")
+    gh_username = request.form.get("github_username_contact")
+    email = request.form.get("email")
+    linkedin = request.form.get("linkedin")
+
+    contact = display_contact(user_name, gh_username, email, linkedin)
+
+    # --- Tech Stack ---
+    skills_name = request.form.getlist("skill_name")
+
+    tech_stack = display_skills(skills_name, request.form)
+
+    # --- All mardkown ---
+    markdown = gather_project_sections(
+        enter_section, about, features_mk, install, usage, contact, tech_stack
+    )
+
+    return markdown
 
 
 @app.post("/preview")
 def submit():
     # Transform markdown data in html
     markdown_data = request.form["data"]
-    return markdown.markdown(markdown_data)
+    return markdown.markdown(
+        markdown_data, extensions=[FencedCodeExtension(), ChecklistExtension()]
+    )
 
 
 @app.get("/links&help")

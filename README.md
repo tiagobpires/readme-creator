@@ -18,13 +18,13 @@
 </h4>
 
 <p align="center">
- <a href="#about">About</a> •
- <a href="#features">Features</a> •
- <a href="#tech-stack">Tech Stack</a> • 
- <a href="#installation">Installation</a> • 
- <a href="#usage">Usage</a> • 
- <a href="#contact">Contact</a> • 
- <a href="#license">License</a>
+	<a href="#about">About</a> •
+	<a href="#features">Features</a> •
+	<a href="#tech-stack">Tech Stack</a> • 
+	<a href="#installation">Installation</a> • 
+	<a href="#usage">Usage</a> • 
+	<a href="#contact">Contact</a> • 
+	<a href="#license">License</a>
 </p>
 
 ## About
@@ -92,7 +92,6 @@ Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to see the app running.
 
 Made with love by [Tiago Barros](https://github.com/tiagobpires), enter in contact!
 
-<img src="https://img.shields.io/badge/tiagobpires-100000?style=flat&logo=github&logoColor=white" alt="GitHub Badge" height="25">&nbsp;
 <img src="https://img.shields.io/badge/tiagobpires-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn Badge" height="25">&nbsp;
 <img src="https://img.shields.io/badge/tiagobarrospires-D14836?style=flat&logo=gmail&logoColor=white" alt="Gmail Badge" height="25">&nbsp;
 
