@@ -201,5 +201,5 @@ def linkshelp():
     return render_template("links&help.html")
 
 
-if __name__ in "__main__":
-    app.run(debug=True)
+# if __name__ in "__main__":
+#     app.run(debug=True)
