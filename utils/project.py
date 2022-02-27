@@ -1,6 +1,3 @@
-from textwrap import dedent
-
-
 def display_enter_section(
     project_name,
     brief_description,

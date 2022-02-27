@@ -6,13 +6,13 @@ from flask import Flask, render_template, request
 from markdown.extensions.fenced_code import FencedCodeExtension
 from markdown_checklist.extension import ChecklistExtension
 
-from utils.profile import *
-from utils.project import *
-
 app = Flask(__name__)
 
-# db = SQL(os.getenv("DATABASE_URL"))
-db = SQL("sqlite:///database.db")
+db = SQL(os.getenv("DATABASE_URL"))
+# db = SQL("sqlite:///database.db")
+
+from utils.profile import *
+from utils.project import *
 
 
 @app.get("/")
