@@ -1,85 +1,95 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Welcome
+Welcome
 {% endblock %}
 
 {% block main %}
 
-    <div class="text-center">
-        <div class="container py-3 px-2 px-md-5">
-            <h2 class="mb-2">📜 Readme Creator</h2>
+<div class="text-center">
+    <div class="container py-3 px-2 px-md-5">
+        <h2 class="mb-2">📜 Readme Creator</h2>
 
-            <p class="lead my-4 fs-4">Create outstanding readmes for your profile and projects easily</p>
+        <p class="lead my-4 fs-4">Create outstanding readmes for your profile and projects easily</p>
 
-            <a href="#readme_options">
-                <button type="button" class="btn btn-success mt-2 mb-4 btn-lg">Get Started</button>
+        <a href="#readme_options">
+            <button type="button" class="btn btn-success mt-2 mb-4 btn-lg">Get Started</button>
+        </a>
+    </div>
+
+    <div>
+        <svg width="500" height="25" viewBox="0 0 144.54 17.34" preserveAspectRatio="none">
+            <path d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0" fill="#f2f6fc" />
+        </svg>
+
+        <div class="pt-4 pt-md-5 pb-3 px-2 px-md-5" style="background-color: #f2f6fc;">
+
+            <div class="container lead text-center fs-5 d-inline-block">
+                <p>
+                    Github is the plataform where most open-source projects are shared. It's a place where you can make
+                    your portfolio, attract the attention of recruiters, conect with people and contribute with open
+                    source projects.
+                </p>
+                <p>
+                    When sharing a project with the world &#127758;, a problem that might occur is that the user will
+                    need to take time to understand the code or what's your project about.
+                    There's where README files enter. With that, you can make your project more understandable or, in
+                    your profile, make a good presentation about you and make easily to connect with people.
+                </p>
+                <p>
+                    Make a good readme can be a tough task, but no worry, we are here to help you, just select one
+                    option, complete the form and add to your repository &#128516;.
+                </p>
+            </div>
+        </div>
+        <svg width="500" height="50" viewBox="0 0 500 80" preserveAspectRatio="none">
+            <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z" fill="#f2f6fc" />
+        </svg>
+    </div>
+
+    <div class="row mx-auto my-4" id="readme_options">
+        <div class="col-md-6 d-flex justify-content-md-end justify-content-center pe-md-4 mb-3 mb-md-3"
+            style="height: 100%;">
+            <a href="/profile" class="card_index">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header fs-4">
+                        <b>Profile</b>
+                    </div>
+
+                    <img src="/static/images/profile_example.png" class="card-img-top" alt="profile readme example"
+                        style="max-height: 322.15px;">
+
+                    <div class="card-body my-1">
+                        <p class="card-text mb-0">Create a awesome Readme for your profile</p>
+                    </div>
+                    <div class="card-footer text-success">
+                        Available
+                    </div>
+                </div>
             </a>
         </div>
 
-        <div>
-            <svg width="500" height="25" viewBox="0 0 144.54 17.34"preserveAspectRatio="none" >
-                <path d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0" fill="#f2f6fc" />
-            </svg>
-            
-            <div class="pt-4 pt-md-5 pb-3 px-2 px-md-5" style="background-color: #f2f6fc;">
-                
-                <div class="container lead text-center fs-5 d-inline-block">
-                    <p>
-                        Github is the plataform where most open-source projects are shared. It's a place where you can make your portfolio, attract the attention of recruiters, conect with people and contribute with open source projects.
-                    </p>
-                    <p>
-                        When sharing a project with the world &#127758;, a problem that might occur is that the user will need to take time to understand the code or what's your project about.
-                        There's where README files enter. With that, you can make your project more understandable or, in your profile, make a good presentation about you and make easily to connect with people.
-                    </p>
-                    <p>
-                        Make a good readme can be a tough task, but no worry, we are here to help you, just select one option, complete the form and add to your repository &#128516;.
-                    </p>
-                </div>                 
-            </div>
-            <svg width="500" height="50" viewBox="0 0 500 80" preserveAspectRatio="none">
-                <path d="M0,0 L0,40 Q250,80 500,40 L500,0 Z" fill="#f2f6fc" />
-            </svg>
-        </div>
-        
-        <div class="row mx-auto my-4" id="readme_options">
-            <div class="col-md-6 d-flex justify-content-md-end justify-content-center pe-md-4 mb-3 mb-md-3" style="height: 100%;">
-                <a href="/profile" class="card_index">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-header fs-4">
-                            <b>Profile</b>
-                        </div>
-                        
-                        <img src="/static/images/profile_readme_example.png" class="card-img-top" alt="profile readme example">
-                        
-                        <div class="card-body my-1">
-                            <p class="card-text mb-0">Create a awesome Readme for your profile</p>
-                        </div>
-                        <div class="card-footer text-success">
-                            Available
-                        </div>
+        <div class="col-md-6 d-flex justify-content-md-start justify-content-center ps-md-4" style="height: 100%;">
+            <a href="/project" class="card_index">
+                <div class="card" id="project_card" style="width: 18rem;">
+                    <div class="card-header fs-4">
+                        <b>Project</b>
                     </div>
-                </a>
-            </div>
 
-            <div class="col-md-6 d-flex justify-content-md-start justify-content-center ps-md-4" style="height: 100%;">
-                <a href="/project" class="card_index">
-                    <div class="card" id="project_card" style="width: 18rem;">
-                        <div class="card-header fs-4">
-                            <b>🚧 Project 🚧</b>
-                        </div>
-                        <!-- <img src="" class="card-img-top" alt="Under Construction"> -->
-                        <div class="card-body my-1">
-                            <p class="card-text">Create a awesome Readme for your projects</p>
-                        </div>
-                        <div class="card-footer text-danger">
-                            Not available
-                        </div>
+                    <img src="/static/images/project_example.png" class="card-img-top" alt="Under Construction"
+                        style="max-height: 322.15px;">
+
+                    <div class="card-body my-1">
+                        <p class="card-text">Create a awesome Readme for your projects</p>
                     </div>
-                </a>
-            </div>
+                    <div class="card-footer text-success">
+                        Available
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
-    
+</div>
+
 
 {% endblock %}

@@ -29,7 +29,7 @@ def display_about_you(prefix, info, prefix_links, info_links):
 
             # Add new section with first info if not added
             if markdown == "":
-                markdown += "### About me\n"
+                markdown += "## About me\n"
                 markdown += before_info + " **" + info[i] + "**\n"
             else:
                 markdown += "<br/>" + before_info + " **" + info[i] + "**\n"

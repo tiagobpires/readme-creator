@@ -2,13 +2,21 @@ import os
 
 import markdown
 from cs50 import SQL
+from dotenv import load_dotenv
 from flask import Flask, render_template, request
 from markdown.extensions.fenced_code import FencedCodeExtension
 from markdown_checklist.extension import ChecklistExtension
 
-app = Flask(__name__)
 
-db = SQL(os.getenv("DATABASE_URL"))
+app = Flask(__name__)
+load_dotenv()
+
+
+uri = os.getenv("DATABASE_URL")
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://")
+
+db = SQL(uri)
 # db = SQL("sqlite:///database.db")
 
 from utils.profile import *
@@ -201,5 +209,5 @@ def linkshelp():
     return render_template("links&help.html")
 
 
-# if __name__ in "__main__":
-#     app.run(debug=True)
+if __name__ in "__main__":
+    app.run(debug=True)
