@@ -11,7 +11,6 @@ from markdown_checklist.extension import ChecklistExtension
 app = Flask(__name__)
 load_dotenv()
 
-
 uri = os.getenv("DATABASE_URL")
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://")
