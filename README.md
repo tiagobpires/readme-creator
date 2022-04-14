@@ -113,6 +113,6 @@ Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to see the app running.
 Made with ❤️ by [Tiago Barros](https://github.com/tiagobpires), get in touch!
 
 <a href="mailto:tiagobarrospires@gmail.com" target="_blank"><img src="https://img.shields.io/badge/tiagobarrospires@gmail.com-D14836?style=flat&logo=gmail&logoColor=white" alt="Email Badge" height="25"></a>&nbsp;
-<a href="https://www.linkedin.com/in/tiagobpries" target="_blank"><img src="https://img.shields.io/badge/tiagobpries-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn Badge" height="25"></a>&nbsp;
+<a href="https://www.linkedin.com/in/tiagobpires" target="_blank"><img src="https://img.shields.io/badge/tiagobpries-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn Badge" height="25"></a>&nbsp;
 
 <br clear="left"/>
