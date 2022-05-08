@@ -45,11 +45,11 @@ class ProfileForm:
                 link_social_media = social_medias[i].social_link.replace(
                     "username", item
                 )
-                link_badge = social_medias[i].badge_link.replace(
-                    social_medias[i].name, item
-                )
+                # link_badge = social_medias[i].badge_link.replace(
+                #     social_medias[i].name, item
+                # )
 
-                self.markdown += f'<a href="{link_social_media}" target="_blank"><img src="{link_badge}" alt="{social_medias[i].name} Badge" height="25"></a>&nbsp;\n'
+                self.markdown += f'<a href="{link_social_media}" target="_blank"><img src="{social_medias[i].badge_link}" alt="{social_medias[i].name} Badge" height="25"></a>&nbsp;\n'
 
         self.markdown += "\n"
 

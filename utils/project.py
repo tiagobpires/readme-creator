@@ -117,13 +117,13 @@ class ProjectForm:
 
         if email:
             self.contact += f'<a href="mailto:{email}" target="_blank">'
-            self.contact += f'<img src="https://img.shields.io/badge/{email}-D14836?style=flat&logo=gmail&logoColor=white" alt="Email Badge" height="25"></a>&nbsp;\n'
+            self.contact += f'<img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white" alt="Email Badge" height="25"></a>&nbsp;\n'
 
         if linkedin:
             self.contact += (
                 f'<a href="https://www.linkedin.com/in/{linkedin}" target="_blank">'
             )
-            self.contact += f'<img src="https://img.shields.io/badge/{linkedin}-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn Badge" height="25"></a>&nbsp;\n'
+            self.contact += f'<img src="https://img.shields.io/badge/Linkedin-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn Badge" height="25"></a>&nbsp;\n'
 
         if self.contact != "":
             self.contact = f'## Contact\n{self.contact}\n<br clear="left"/>\n'

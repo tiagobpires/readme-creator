@@ -16,7 +16,7 @@ def create_app():
 
     from models import AboutYou, Analytics, Skill, SocialMedia
 
-    migrate.init_app(app)
+    migrate.init_app(app, db)
 
     @app.get("/")
     def index():
