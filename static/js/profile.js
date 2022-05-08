@@ -18,11 +18,17 @@ $("#form_profile").submit(function (e) {
             // Set preview
             document.getElementById("preview").style = "display: block;";
             document.getElementById("markdown-input").value = data;
-            // Active markdown input tab
-            // document.getElementById("markdown-tab").className = "nav-link active";
-            // document.getElementById("preview-tab").className = "nav-link";
         }
     });
+
+    // Update number of profiles readme made
+    if (sessionStorage.getItem("profile_readme") == "false") {
+        $.ajax({
+            type: "GET",
+            url: "/analytics/profile",
+        });
+        sessionStorage.setItem("profile_readme", "true");
+    }
 });
 
 // -------------- Features Section ---------------

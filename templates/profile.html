@@ -45,34 +45,36 @@ Profile
             <!-- More about you -->
             <fieldset class="border p-2 mb-2 row gx-2">
                 <legend class="legend w-auto mb-0">More about you</legend>
-
+                
+                <!-- Sections without links -->
                 {% for about_you in more_about_you %}
                 <div class="col-md-3 mb-2">
-                    <input name="about_you_prefix" type="text" class="form-control" value="{{ about_you['prefix'] }}">
+                    <input name="about_you_prefix" type="text" class="form-control" value="{{ about_you.prefix }}">
                 </div>
 
                 <div class="col-md-9 mb-md-2 mb-3">
                     <input name="about_you_input" type="text" class="form-control"
-                        placeholder="{{ about_you['place_holder'] }}">
+                        placeholder="{{ about_you.place_holder }}">
                 </div>
                 {% endfor %}
-
+                
+                <!-- Sections with link -->
                 <div class="col-md-3 mb-2">
-                    <input name="about_you_link_prefix" type="text" class="form-control" value="📫 Reach me">
+                    <input name="about_you_email_prefix" type="text" class="form-control" value="📫 Reach me">
                 </div>
 
                 <div class="col-md-9 mb-2 mb-md-2 mb-3">
-                    <input name="about_you_link_input" type="text" class="form-control"
+                    <input name="about_you_email_input" type="text" class="form-control"
                         placeholder="tiagobarrospires@gmail.com">
                 </div>
 
                 <div class="col-md-3 mb-2">
-                    <input name="about_you_link_prefix" type="text" class="form-control"
+                    <input name="about_you_portfolio_prefix" type="text" class="form-control"
                         value="🖥️ See my portfolio at">
                 </div>
 
                 <div class="col-md-9 mb-2 mb-md-2 mb-3">
-                    <input name="about_you_link_input" type="text" class="form-control" placeholder="www.portfolio.com">
+                    <input name="about_you_portfolio_input" type="text" class="form-control" placeholder="www.portfolio.com">
                 </div>
             </fieldset>
 
@@ -80,13 +82,13 @@ Profile
             <fieldset class="border p-2 mb-2 row gx-2">
                 <legend class="legend w-auto mb-0">Your Social Medias</legend>
 
-                {% for social in social_medias %}
+                {% for social_media in social_medias %}
                 <div class="d-flex col-md-6 justify-content-start my-1">
                     <div class="divSocialBadges d-flex justify-content-end">
-                        <img src="{{ social['badge'] }}" class="socialbadges my-auto mx-2">
+                        <img src="{{ social_media.badge_link }}" class="socialbadges my-auto mx-2">
                     </div>
-                    <input name="social_media_input" type="text" id="{{ social['name'] }}" class="form-control w-50"
-                        placeholder="{{ social['name'] }} username">
+                    <input name="social_media_input" type="text" id="{{ social_media.name }}" class="form-control w-50"
+                        placeholder="{{ social_media.name }} username">
                 </div>
                 {% endfor %}
             </fieldset>
@@ -327,10 +329,10 @@ Profile
                     {% for skill in skills %}
                     <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
                         <input name="skill_name" class="form-check-input ms-xl-2 skill_name" type="checkbox"
-                            value="{{ skill['name'] }}" id="{{ skill['name'] }}">
-                        <input name="{{ skill['name'] }}" class="visually-hidden" value="{{ skill['link'] }}">
-                        <label for="{{ skill['name'] }}">
-                            <img src="{{ skill['link'] }}" class="skillsImage ms-xl-4">
+                            value="{{ skill.name }}" id="{{ skill.name }}">
+                        <input name="{{ skill.name }}" class="visually-hidden" value="{{ skill.badge_link }}">
+                        <label for="{{ skill.name }}">
+                            <img src="{{ skill.badge_link }}" class="skillsImage ms-xl-4">
                         </label>
                     </div>
                     {% endfor %}

@@ -1,6 +1,23 @@
+// Save data traffic information
+if (!(sessionStorage.getItem("profile_readme"))) {
+    sessionStorage.setItem("profile_readme", "false");
+}
+if (!(sessionStorage.getItem("project_readme"))) {
+    sessionStorage.setItem("project_readme", "false");
+}
+
+if (!(sessionStorage.getItem("visit"))) {
+    sessionStorage.setItem("visit", "true");
+    $.ajax({
+        type: "GET",
+        url: "/analytics/visits",
+    });
+}
+
+
 // Search Skills
 function search_skill() {
-    let input = document.getElementById('searchbar_skills').value
+    let input = document.getElementById('searchbar_skills').value;
     input = input.toLowerCase();
     let names = document.getElementsByClassName('skill_name');
     let div = document.getElementsByClassName('skill_div');

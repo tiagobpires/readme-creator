@@ -322,10 +322,10 @@ python application.py" style="height: 190px"></textarea>
                     {% for skill in skills %}
                     <div class="form-check my-4 col-6 col-md-4 col-xl-3 skill_div">
                         <input name="skill_name" class="form-check-input ms-xl-2 skill_name" type="checkbox"
-                            value="{{ skill['name'] }}" id="{{ skill['name'] }}">
-                        <input name="{{ skill['name'] }}" class="visually-hidden" value="{{ skill['link'] }}">
-                        <label for="{{ skill['name'] }}">
-                            <img src="{{ skill['link'] }}" class="skillsImage ms-xl-4">
+                            value="{{ skill.name }}" id="{{ skill.name }}">
+                        <input name="{{ skill.name }}" class="visually-hidden" value="{{ skill.badge_link }}">
+                        <label for="{{ skill.name }}">
+                            <img src="{{ skill.badge_link }}" class="skillsImage ms-xl-4">
                         </label>
                     </div>
                     {% endfor %}

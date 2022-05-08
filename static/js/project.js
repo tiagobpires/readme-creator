@@ -18,6 +18,15 @@ $("#form_project").submit(function (e) {
             document.getElementById("markdown-input").value = data;
         }
     });
+
+    // Update number of project readme made
+    if (sessionStorage.getItem("project_readme") == "false") {
+        $.ajax({
+            type: "GET",
+            url: "/analytics/project",
+        });
+        sessionStorage.setItem("project_readme", "true");
+    }
 });
 
 // ------------ Features --------------
