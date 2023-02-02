@@ -15,7 +15,7 @@
 </p>
 
 <h4 align="center">
-	Status: ✔️ <a href="https://readmecreator.herokuapp.com/">Available</a>
+	Status:  Available to run locally
 </h4>
 
 <p align="center">
@@ -28,6 +28,9 @@
 </p>
 
 <br/>
+
+
+> Unfortunately this project was deployed on Heroku, but the company no longer has a free plan! While we don't deploy at other plataform, you can run the project locally! 
 
 ## About
 
